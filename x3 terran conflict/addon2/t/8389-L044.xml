@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <language id="44">
-  <page id="800001" title="Internationalization Strings" descr="For i18n, translate the ids in this page!" voice="no">
+  <page id="80001" title="Internationalization Strings" descr="For i18n, translate the ids in this page!" voice="no">
     <!-- Color Codes for Reference -->
       <!-- \033X None -->
       <!-- \033R Red -->
@@ -474,7 +474,7 @@
     <t id="693">31</t>
     <t id="694">31</t>
     <t id="695">22</t>
-    <t id="696">22</t>
+    <t id="696">21</t>
     <t id="700">70</t> <!--Split Tiger-->
     <t id="701">846</t>
     <t id="702">846</t>
@@ -1281,7 +1281,7 @@
     <t id="1845">4</t>
     <t id="1846">3</t>
     <t id="1850">185</t> <!--Pirates Blastclaw-->
-    <t id="1851">14</t>
+    <t id="1851">13</t>
     <t id="1852">13</t>
     <t id="1853">9</t>
     <t id="1854">9</t>
@@ -1450,7 +1450,7 @@
     <t id="2086">165</t>
     <t id="2090">209</t> <!--ATF Skirnir-->
     <t id="2091">445</t>
-    <t id="2092">204</t>
+    <t id="2092">203</t>
     <t id="2093">261</t>
     <t id="2094">261</t>
     <t id="2095">87</t>
@@ -1676,16 +1676,16 @@
     <t id="2411">226</t>
     <t id="2412">213</t>
     <t id="2413">163</t>
-    <t id="2414">162</t>
-    <t id="2415">163</t>
+    <t id="2414">151</t>
+    <t id="2415">155</t>
     <t id="2416">162</t>
     <t id="2420">242</t> <!--Kha'ak Destroyer-->
     <t id="2421">239</t>
     <t id="2422">162</t>
-    <t id="2423">187</t>
-    <t id="2424">196</t>
-    <t id="2425">190</t>
-    <t id="2426">184</t>
+    <t id="2423">181</t>
+    <t id="2424">187</t>
+    <t id="2425">179</t>
+    <t id="2426">187</t>
     <t id="2430">243</t> <!--Kha'ak Fighter-->
     <t id="2431">13</t>
     <t id="2432">7</t>
@@ -1710,17 +1710,17 @@
     <t id="2460">246</t> <!--Kha'ak Corvette-->
     <t id="2461">77</t>
     <t id="2462">91</t>
-    <t id="2463">84</t>
-    <t id="2464">103</t>
-    <t id="2465">85</t>
-    <t id="2466">112</t>
+    <t id="2463">111</t>
+    <t id="2464">112</t>
+    <t id="2465">105</t>
+    <t id="2466">84</t>
     <t id="2480">248</t> <!--Kha'ak Hive Queen-->
     <t id="2481">226</t>
     <t id="2482">213</t>
-    <t id="2483">154</t>
-    <t id="2484">163</t>
+    <t id="2483">163</t>
+    <t id="2484">162</t>
     <t id="2485">163</t>
-    <t id="2486">161</t>
+    <t id="2486">154</t>
     <t id="2490">249</t> <!--Goner Ozias-->
     <t id="2491">882</t>
     <t id="2492">882</t>
@@ -2380,7 +2380,7 @@
     <t id="3565">6</t>
     <t id="3566">6</t>
     <t id="3570">357</t> <!--Pirates Blastclaw Prototype-->
-    <t id="3571">14</t>
+    <t id="3571">13</t>
     <t id="3572">13</t>
     <t id="3573">9</t>
     <t id="3574">9</t>
@@ -2756,7 +2756,7 @@
     <t id="4153">31</t>
     <t id="4154">31</t>
     <t id="4155">22</t>
-    <t id="4156">22</t>
+    <t id="4156">21</t>
     <t id="4160">416</t> <!--NMMC Falcon Miner-->
     <t id="4161">16</t>
     <t id="4162">16</t>
@@ -2827,5 +2827,12 @@
     <t id="4254">35</t>
     <t id="4255">18</t>
     <t id="4256">17</t>
+    <t id="4260">426</t> <!--ATF Thor Prototype-->
+    <t id="4261">11</t>
+    <t id="4262">11</t>
+    <t id="4263">7</t>
+    <t id="4264">7</t>
+    <t id="4265">3</t>
+    <t id="4266">3</t>
   </page>
 </language>

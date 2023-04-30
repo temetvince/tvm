@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.set.task.rememberhomebase</name>
+	<name>tv.task.improvedpiloting</name>
 	<version>1</version>
 	<engineversion>50</engineversion>
 	<description></description>
@@ -22,7 +22,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.task.rememberhomebase'</text>
+			<text>'tv.task.improvedpiloting'</text>
 		</line>
 		<line linenr="002" indent="">
 			<var>$priority</var>
@@ -53,7 +53,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.feature.rememberhomebase</call>
+			<call>tv.feature.improvedpiloting</call>
 			<text> </text>
 			<text>on</text>
 			<text> </text>
@@ -79,7 +79,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.feature.rememberhomebase</call>
+			<call>tv.feature.improvedpiloting</call>
 			<text> </text>
 			<text>and</text>
 			<text> </text>
@@ -109,17 +109,16 @@
 			<var>null</var>
 		</line>
 		<line linenr="006" indent="" />
-		<line linenr="007" indent="" />
-		<line linenr="008" indent="">
+		<line linenr="007" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="009" indent="" />
+		<line linenr="008" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.set.task.rememberhomebase" />
+			<sval type="string" val="tv.task.improvedpiloting" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
@@ -132,7 +131,7 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.task.rememberhomebase" />
+					<sval type="string" val="tv.task.improvedpiloting" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="4">
@@ -146,7 +145,7 @@
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-536869881" />
-					<sval type="string" val="tv.feature.rememberhomebase" />
+					<sval type="string" val="tv.feature.improvedpiloting" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 				</sval>
@@ -154,7 +153,7 @@
 					<sval type="int" val="1017" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="string" val="tv.feature.rememberhomebase" />
+					<sval type="string" val="tv.feature.improvedpiloting" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
@@ -177,13 +176,9 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="4">
+			<sval type="array" size="3">
 				<sval type="array" size="2">
 					<sval type="int" val="2" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="4" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">

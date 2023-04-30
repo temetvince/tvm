@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.bounce.simpletest</name>
+	<name>tv.feature.collisionwarningsystem.test</name>
 	<version>11</version>
 	<engineversion>44</engineversion>
 	<description>Description</description>
@@ -46,7 +46,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.bounce.z.bounce.testcollision.ship</call>
+			<call>tv.feature.collisionwarningsystem.test.collisions</call>
 			<text> </text>
 			<text>:</text>
 			<text> </text>
@@ -81,7 +81,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.bounce.z.bounce.testcollision.ship</call>
+			<call>tv.feature.collisionwarningsystem.test.collisions</call>
 			<text> </text>
 			<text>:</text>
 			<text> </text>
@@ -115,7 +115,7 @@
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.bounce.simpletest" />
+			<sval type="string" val="tv.feature.collisionwarningsystem.test" />
 			<sval type="int" val="44" />
 			<sval type="string" val="Description" />
 			<sval type="int" val="11" />
@@ -124,7 +124,7 @@
 			<sval type="array" size="3">
 				<sval type="array" size="16">
 					<sval type="int" val="102" />
-					<sval type="string" val="tv.bounce.z.bounce.testcollision.ship" />
+					<sval type="string" val="tv.feature.collisionwarningsystem.test.collisions" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
@@ -142,7 +142,7 @@
 				</sval>
 				<sval type="array" size="16">
 					<sval type="int" val="102" />
-					<sval type="string" val="tv.bounce.z.bounce.testcollision.ship" />
+					<sval type="string" val="tv.feature.collisionwarningsystem.test.collisions" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />

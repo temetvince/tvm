@@ -9,6 +9,39 @@
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
+			<var>$tv.wait.sleep</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.wait.sleep'</text>
+		</line>
+		<line linenr="002" indent="">
+			<var>$tv.wait.responsive</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.wait.responsive'</text>
+		</line>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="">
 			<text>while</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -22,7 +55,7 @@
 			<text> </text>
 			<text>sector</text>
 		</line>
-		<line linenr="002" indent="&#160;">
+		<line linenr="005" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<text>not</text>
@@ -38,28 +71,23 @@
 			<text>=</text>
 			<text>'tv.feature.rememberhomebase'</text>
 		</line>
-		<line linenr="003" indent="&#160;&#160;" interruptable="@">
+		<line linenr="006" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
-			<var>[THIS]</var>
-			<text>-&gt;</text>
+			<text>wait</text>
 			<text> </text>
-			<text>call</text>
+			<var>$tv.wait.sleep</var>
 			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.wait</call>
-			<text>:</text>
-			<text> </text>
+			<text>ms</text>
 		</line>
-		<line linenr="004" indent="&#160;&#160;">
+		<line linenr="007" indent="&#160;&#160;">
 			<text>continue</text>
 		</line>
-		<line linenr="005" indent="&#160;">
+		<line linenr="008" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="006" indent="&#160;" />
-		<line linenr="007" indent="&#160;">
+		<line linenr="009" indent="&#160;" />
+		<line linenr="010" indent="&#160;">
 			<var>$homebase</var>
 			<text> </text>
 			<text>=</text>
@@ -71,15 +99,15 @@
 			<text> </text>
 			<text>homebase</text>
 		</line>
-		<line linenr="008" indent="&#160;" />
-		<line linenr="009" indent="&#160;">
+		<line linenr="011" indent="&#160;" />
+		<line linenr="012" indent="&#160;">
 			<text>do</text>
 			<text> </text>
 			<text>if</text>
 			<text> </text>
 			<var>$homebase</var>
 		</line>
-		<line linenr="010" indent="&#160;&#160;">
+		<line linenr="013" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -98,9 +126,9 @@
 			<text>=</text>
 			<var>$homebase</var>
 		</line>
-		<line linenr="011" indent="&#160;" />
-		<line linenr="012" indent="&#160;" />
-		<line linenr="013" indent="&#160;">
+		<line linenr="014" indent="&#160;" />
+		<line linenr="015" indent="&#160;" />
+		<line linenr="016" indent="&#160;">
 			<text>if</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -109,7 +137,7 @@
 			<text> </text>
 			<var>[PLAYERSHIP]</var>
 		</line>
-		<line linenr="014" indent="&#160;&#160;">
+		<line linenr="017" indent="&#160;&#160;">
 			<var>$homebase</var>
 			<text> </text>
 			<text>=</text>
@@ -128,7 +156,7 @@
 			<text>=</text>
 			<text>'homebase'</text>
 		</line>
-		<line linenr="015" indent="&#160;&#160;">
+		<line linenr="018" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -140,29 +168,29 @@
 			<text> </text>
 			<var>$homebase</var>
 		</line>
-		<line linenr="016" indent="&#160;">
+		<line linenr="019" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="017" indent="&#160;" />
-		<line linenr="018" indent="&#160;" interruptable="@">
+		<line linenr="020" indent="&#160;" />
+		<line linenr="021" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
 			<text> </text>
-			<var>2000</var>
+			<var>$tv.wait.responsive</var>
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="019" indent="">
+		<line linenr="022" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="020" indent="" />
-		<line linenr="021" indent="">
+		<line linenr="023" indent="" />
+		<line linenr="024" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="022" indent="" />
+		<line linenr="025" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -171,46 +199,58 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="1">
+			<sval type="array" size="3">
+				<sval type="string" val="tv.wait.sleep" />
+				<sval type="string" val="tv.wait.responsive" />
 				<sval type="string" val="homebase" />
 			</sval>
-			<sval type="array" size="13">
+			<sval type="array" size="15">
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.wait.sleep" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.wait.responsive" />
+					<sval type="int" val="1" />
+				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="761" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="-1610609655" />
+					<sval type="int" val="-1610609143" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.feature.rememberhomebase" />
-					<sval type="int" val="-536869884" />
+					<sval type="int" val="-536869372" />
 				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="102" />
-					<sval type="string" val="tv.wait" />
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
 					<sval type="int" val="-2147483647" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="704" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610610936" />
+					<sval type="int" val="-1610610424" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
@@ -221,11 +261,11 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="homebase" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610610173" />
+					<sval type="int" val="-1610609661" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
@@ -244,24 +284,24 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
 					<sval type="string" val="homebase" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="5">
 					<sval type="int" val="713" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
 					<sval type="int" val="-2147483647" />
-					<sval type="int" val="4" />
-					<sval type="int" val="2000" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="0" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -270,21 +310,21 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="11">
+			<sval type="array" size="12">
 				<sval type="array" size="2">
-					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="6" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="4" />
+					<sval type="int" val="6" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="4" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="5" />
+					<sval type="int" val="6" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -292,15 +332,11 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="7" />
+					<sval type="int" val="9" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="10" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="10" />
+					<sval type="int" val="9" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -312,7 +348,15 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="13" />
+					<sval type="int" val="14" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="15" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>

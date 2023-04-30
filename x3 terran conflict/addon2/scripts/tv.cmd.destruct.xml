@@ -58,7 +58,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.display.timeout'</text>
+			<text>'tv.timeout.display'</text>
 		</line>
 		<line linenr="006" indent="&#160;">
 			<text>display</text>
@@ -290,7 +290,7 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.display.timeout" />
+					<sval type="string" val="tv.timeout.display" />
 					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="5">

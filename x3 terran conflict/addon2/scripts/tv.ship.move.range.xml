@@ -107,7 +107,23 @@
 			<text> </text>
 			<var>[FLRET_WARPED]</var>
 		</line>
-		<line linenr="010" indent="&#160;" interruptable="@">
+		<line linenr="010" indent="&#160;">
+			<var>$timeout</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.timeout.follow'</text>
+		</line>
+		<line linenr="011" indent="&#160;" interruptable="@">
 			<var>$status</var>
 			<text> </text>
 			<text>=</text>
@@ -133,15 +149,15 @@
 			<text> </text>
 			<text>timeout</text>
 			<text>=</text>
-			<var>1000</var>
+			<var>$timeout</var>
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="011" indent="">
+		<line linenr="012" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="012" indent="" />
-		<line linenr="013" indent="">
+		<line linenr="013" indent="" />
+		<line linenr="014" indent="">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -154,7 +170,7 @@
 			<text> </text>
 			<var>0</var>
 		</line>
-		<line linenr="014" indent="">
+		<line linenr="015" indent="">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -166,13 +182,13 @@
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="015" indent="" />
-		<line linenr="016" indent="">
+		<line linenr="016" indent="" />
+		<line linenr="017" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>$status</var>
 		</line>
-		<line linenr="017" indent="" />
+		<line linenr="018" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -181,12 +197,13 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="3">
+			<sval type="array" size="4">
 				<sval type="string" val="target" />
 				<sval type="string" val="precision" />
 				<sval type="string" val="status" />
+				<sval type="string" val="timeout" />
 			</sval>
-			<sval type="array" size="11">
+			<sval type="array" size="12">
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
 					<sval type="int" val="-1610612216" />
@@ -236,7 +253,7 @@
 				</sval>
 				<sval type="array" size="73">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610610679" />
+					<sval type="int" val="-1610610423" />
 					<sval type="int" val="23" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
@@ -309,6 +326,12 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="-21" />
 				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.timeout.follow" />
+					<sval type="int" val="3" />
+				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="563" />
 					<sval type="int" val="131075" />
@@ -318,8 +341,8 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1000" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
@@ -369,19 +392,19 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="8" />
+					<sval type="int" val="9" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="8" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="10" />
+					<sval type="int" val="9" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="12" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>

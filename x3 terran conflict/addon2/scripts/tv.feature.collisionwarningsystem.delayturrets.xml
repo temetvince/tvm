@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.bounce.lib.cmd.bounce.delayturrets</name>
+	<name>tv.feature.collisionwarningsystem.delayturrets</name>
 	<version>2</version>
 	<engineversion>50</engineversion>
 	<description>Lib Cmd: Bounce - Delays turrets for a short while</description>
@@ -22,6 +22,7 @@
 			<var>$time</var>
 		</line>
 		<line linenr="004" indent="&#160;" interruptable="@">
+			<text>  </text>
 			<var>$time</var>
 			<text> </text>
 			<text>=</text>
@@ -45,7 +46,7 @@
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.bounce.lib.cmd.bounce.delayturrets" />
+			<sval type="string" val="tv.feature.collisionwarningsystem.delayturrets" />
 			<sval type="int" val="50" />
 			<sval type="string" val="Lib Cmd: Bounce - Delays turrets for a short while" />
 			<sval type="int" val="2" />

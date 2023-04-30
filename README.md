@@ -13,8 +13,8 @@
 * To go back to the original font, remove/rename the *f* folder in your game install's *x3 terran conflict* folder
 
 ### Features
-* Litcube's Bounce
-    * Severely reduced collisions during battles
+* Collision Warning System
+    * Severely reduced collisions during battles (Litcube's Bounce)
 * Improved Piloting
     * Ships rotate themselves so they are "upright" when flying around
 * Overachiever

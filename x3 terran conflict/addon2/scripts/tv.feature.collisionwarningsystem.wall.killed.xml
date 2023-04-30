@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.bounce.sig.bounce.wall.killed</name>
+	<name>tv.feature.collisionwarningsystem.wall.killed</name>
 	<version>3</version>
 	<engineversion>44</engineversion>
 	<description>Signal: Property Kill Notify</description>
@@ -55,7 +55,7 @@
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.bounce.sig.bounce.wall.killed" />
+			<sval type="string" val="tv.feature.collisionwarningsystem.wall.killed" />
 			<sval type="int" val="44" />
 			<sval type="string" val="Signal: Property Kill Notify" />
 			<sval type="int" val="3" />
