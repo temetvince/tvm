@@ -3,6 +3,15 @@
 ## This is a mod for Egosoft's X3: Farnhams Legacy
 * To download, go to the latest release and click 'Source code (zip)': https://github.com/temetvince/tvm/releases/
 
+### Installation
+* Copy the contents of this repository's *x3 terran conflict* folder into your game install's *x3 terran conflict* folder
+    * You should not be asked to overwrite ANY files, unless you are already using a custom font
+* Optionally install Reshade
+    * http://reshade.me
+    * The game uses DirectX 9
+    * The included preset is called *temetvince.ini*
+* To go back to the original font, remove/rename the *f* folder in your game install's *x3 terran conflict* folder
+
 ### Features
 * Litcube's Bounce
     * Severely reduced collisions during battles
@@ -24,14 +33,6 @@
     * https://github.com/belluzj/fantasque-sans
 * Reshade preset
     * temetvince.ini
-
-### Installation
-* Copy the contents of the *x3 terran conflict* folder into your game install's *x3 terran conflict* folder
-    * You should not be asked to overwrite ANY files, unless you are already using a custom font
-* Optionally install Reshade
-    * http://reshade.me
-    * The game uses DirectX 9
-* To go back to the original font, remove/rename the *f* folder in your game install's *x3 terran conflict* folder
 
 ### Special Thanks
 * To Litcube for his amazing Bounce scripts and for making Litcube's Universe, which has sucked many hours of my life away
