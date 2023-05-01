@@ -29,6 +29,10 @@
     * A Navigation Command to map gates in the current sector
 * Self Destruct
     * A Special Command that destroys an owned ship
+* Universal Knowledge
+    * Cheats to discover all sectors, know all gates, or place satellites universe wide
+* God Mode
+    * Cheat to make the player invincible with infinite laser energy
 * A new game font: *Fantasque Sans Mono*
     * https://github.com/belluzj/fantasque-sans
 * Reshade preset
