@@ -21,10 +21,8 @@
     <t id="2">\033YMapping\033G \033C%s</t>
     <!-- tv.i18n.command.mapping.error -->
     <t id="3">\033GAll gates already known</t>
-    <!-- tv.i18n.hotkey.cheat.save.name -->
-    <t id="4">\033RCheat: All of Time</t>
-    <!-- tv.i18n.hotkey.cheat.addsats.name -->
-    <t id="5">\033RCheat: All of Space</t>
+    <!-- tv.i18n.hotkey.menu.tvm.name-->
+    <t id="4">\033GTVM Menu</t>
   </page>
 
   <page id="2010" title="Script Cmd Names" descr="For i18n, translate the ids in this page!">

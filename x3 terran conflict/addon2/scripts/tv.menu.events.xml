@@ -1,0 +1,1329 @@
+<?xml version="1.0" standalone="yes"?>
+<?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
+<!-- Generated using X-Studio -->
+<script>
+	<name>tv.menu.events</name>
+	<version>1</version>
+	<engineversion>60</engineversion>
+	<description></description>
+	<arguments>
+		<argument index="1" name="object" type="Var/Ship/Station" desc="[THIS]" />
+		<argument index="2" name="state" type="Var/String" desc="Event state" />
+		<argument index="3" name="value" type="Value" desc="Value Argument" />
+	</arguments>
+	<sourcetext>
+		<line linenr="001" indent="">
+			<comment>* Event script: Controls the menu</comment>
+		</line>
+		<line linenr="002" indent="">
+			<comment>* Params: 3, as follows:</comment>
+		</line>
+		<line linenr="003" indent="">
+			<comment>*        1. &lt;RefObj&gt; that calls the script (ie [THIS])</comment>
+		</line>
+		<line linenr="004" indent="">
+			<comment>*        2. String for the current event state</comment>
+		</line>
+		<line linenr="005" indent="">
+			<comment>*        3. Value Argument of the return values from the current event state (Optional)</comment>
+		</line>
+		<line linenr="006" indent="">
+			<comment>* Returns: Return value from state [MEvent.Arguments] or null from state [MEvent.Cancelled]</comment>
+		</line>
+		<line linenr="007" indent="" />
+		<line linenr="008" indent="">
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Start]</var>
+		</line>
+		<line linenr="009" indent="&#160;">
+			<comment>* Called when the menu is first opened</comment>
+		</line>
+		<line linenr="010" indent="&#160;">
+			<comment>* Returns: an input array which defines the type of input to open, with a String ID for the current state</comment>
+		</line>
+		<line linenr="011" indent="&#160;">
+			<comment>* Note: when input type is a custom menu array, the nextinput opens as another menu,</comment>
+		</line>
+		<line linenr="012" indent="&#160;">
+			<comment>*            but the old menu (with state) remains open in the background</comment>
+		</line>
+		<line linenr="013" indent="&#160;" />
+		<line linenr="014" indent="&#160;">
+			<var>$input</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>input</text>
+			<text>:</text>
+			<text> </text>
+			<text>open</text>
+			<text> </text>
+			<text>property</text>
+			<text> </text>
+			<text>page</text>
+			<text>,</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<text>'id_of_an_input'</text>
+		</line>
+		<line linenr="015" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>$input</var>
+		</line>
+		<line linenr="016" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<text>'id_of_an_input'</text>
+		</line>
+		<line linenr="017" indent="&#160;">
+			<comment>* Called after the player selects an option from the input</comment>
+		</line>
+		<line linenr="018" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="019" indent="&#160;">
+			<comment>*        a. a new input array (opens a new menu)      OR</comment>
+		</line>
+		<line linenr="020" indent="&#160;">
+			<comment>*        b. [TRUE] (calls state [MEvent.Arguments])    OR</comment>
+		</line>
+		<line linenr="021" indent="&#160;">
+			<comment>*        c. null (to cancel and close)</comment>
+		</line>
+		<line linenr="022" indent="&#160;" />
+		<line linenr="023" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="024" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Arguments]</var>
+		</line>
+		<line linenr="025" indent="&#160;">
+			<comment>* Called when returning [TRUE] from a state as the ID of the input</comment>
+		</line>
+		<line linenr="026" indent="&#160;">
+			<comment>* Returns: a final return value to the caller of this event script</comment>
+		</line>
+		<line linenr="027" indent="&#160;" />
+		<line linenr="028" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="029" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Cancelled]</var>
+		</line>
+		<line linenr="030" indent="&#160;">
+			<comment>* Called if the player presses esc without selecting anything</comment>
+		</line>
+		<line linenr="031" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="032" indent="&#160;">
+			<comment>*        a. a new input array (allows you to display a previous menu)    OR</comment>
+		</line>
+		<line linenr="033" indent="&#160;">
+			<comment>*        b. null (to cancel and close)</comment>
+		</line>
+		<line linenr="034" indent="&#160;" />
+		<line linenr="035" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="036" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Finished]</var>
+		</line>
+		<line linenr="037" indent="&#160;">
+			<comment>* Called after [MEvent.Arguments]/[MEvent.Cancelled] for setting local/global variables to null (clean up)</comment>
+		</line>
+		<line linenr="038" indent="&#160;">
+			<comment>* Returns: nothing</comment>
+		</line>
+		<line linenr="039" indent="&#160;" />
+		<line linenr="040" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="041" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Returned]</var>
+		</line>
+		<line linenr="042" indent="&#160;">
+			<comment>* Called when selecting the next input when the input type is a custom menu</comment>
+		</line>
+		<line linenr="043" indent="&#160;">
+			<comment>* Value Argument contains:</comment>
+		</line>
+		<line linenr="044" indent="&#160;">
+			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		</line>
+		<line linenr="045" indent="&#160;">
+			<comment>*        element 1 = the id of the menu it was run from</comment>
+		</line>
+		<line linenr="046" indent="&#160;">
+			<comment>*        element 2 = the value the player selected (or null if cancelled)</comment>
+		</line>
+		<line linenr="047" indent="&#160;">
+			<comment>*        element 3 = the current state of the menu array</comment>
+		</line>
+		<line linenr="048" indent="&#160;">
+			<comment>* Returns: </comment>
+		</line>
+		<line linenr="049" indent="&#160;">
+			<comment>*        a. a new custom menu array to replace the existing menu data    OR</comment>
+		</line>
+		<line linenr="050" indent="&#160;">
+			<comment>*        b. an input array to open another input                                       OR</comment>
+		</line>
+		<line linenr="051" indent="&#160;">
+			<comment>*        c. null to return to previous menu with no changes</comment>
+		</line>
+		<line linenr="052" indent="&#160;" />
+		<line linenr="053" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="054" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Select]</var>
+		</line>
+		<line linenr="055" indent="&#160;">
+			<comment>* Called when the player selects an item with a callback return value for the menu item</comment>
+		</line>
+		<line linenr="056" indent="&#160;">
+			<comment>* Value Argument contains the value id set in the command</comment>
+		</line>
+		<line linenr="057" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="058" indent="&#160;">
+			<comment>*        a. a new input array (opens a new menu)                        OR</comment>
+		</line>
+		<line linenr="059" indent="&#160;">
+			<comment>*        b. an update array (updates the menu)                            OR</comment>
+		</line>
+		<line linenr="060" indent="&#160;">
+			<comment>*        c. null (to do nothing)                                                     OR</comment>
+		</line>
+		<line linenr="061" indent="&#160;">
+			<comment>*        d. any other value (closes the menu, returns this value) </comment>
+		</line>
+		<line linenr="062" indent="&#160;" />
+		<line linenr="063" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="064" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Selection]</var>
+			<text> </text>
+		</line>
+		<line linenr="065" indent="&#160;">
+			<comment>* Called from the [Callback.Selection] of a custom menu input array</comment>
+		</line>
+		<line linenr="066" indent="&#160;">
+			<comment>*        every time the menu selection is changed</comment>
+		</line>
+		<line linenr="067" indent="&#160;">
+			<comment>* Value Argument contains:</comment>
+		</line>
+		<line linenr="068" indent="&#160;">
+			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		</line>
+		<line linenr="069" indent="&#160;">
+			<comment>*        element 1 = the id of the selected item</comment>
+		</line>
+		<line linenr="070" indent="&#160;">
+			<comment>*        element 2 = the value of the item the player selected</comment>
+		</line>
+		<line linenr="071" indent="&#160;">
+			<comment>*        element 3 = the current menu array</comment>
+		</line>
+		<line linenr="072" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="073" indent="&#160;">
+			<comment>*        a. a menu array (updates the current menu)    OR</comment>
+		</line>
+		<line linenr="074" indent="&#160;">
+			<comment>*        b. null (to do nothing)</comment>
+		</line>
+		<line linenr="075" indent="&#160;" />
+		<line linenr="076" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="077" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.TradeBar]</var>
+		</line>
+		<line linenr="078" indent="&#160;">
+			<comment>* Called from the [Callback.TradeBar] of a custom menu input array</comment>
+		</line>
+		<line linenr="079" indent="&#160;">
+			<comment>*        every time the menu is drawn (to change the trade bar w/o creating a new menu)</comment>
+		</line>
+		<line linenr="080" indent="&#160;">
+			<comment>* Value Argument contains:</comment>
+		</line>
+		<line linenr="081" indent="&#160;">
+			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		</line>
+		<line linenr="082" indent="&#160;">
+			<comment>*        element 1 = the current trade bar array</comment>
+		</line>
+		<line linenr="083" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="084" indent="&#160;">
+			<comment>*        a. a new tradebar array (updates the current tradebar)    OR</comment>
+		</line>
+		<line linenr="085" indent="&#160;">
+			<comment>*        b. null (to do nothing)</comment>
+		</line>
+		<line linenr="086" indent="&#160;" />
+		<line linenr="087" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="088" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.TradeBarCh]</var>
+		</line>
+		<line linenr="089" indent="&#160;">
+			<comment>* Called from the [Callback.TradeBarCh] of a custom menu input array</comment>
+		</line>
+		<line linenr="090" indent="&#160;">
+			<comment>*        every time the player changes the tradebar</comment>
+		</line>
+		<line linenr="091" indent="&#160;">
+			<comment>* Value Argument contains: TODO need to update this</comment>
+		</line>
+		<line linenr="092" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="093" indent="&#160;">
+			<comment>*        a. a menu array (updates the current menu)    OR</comment>
+		</line>
+		<line linenr="094" indent="&#160;">
+			<comment>*        b. null (to do nothing)</comment>
+		</line>
+		<line linenr="095" indent="&#160;" />
+		<line linenr="096" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="097" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Switch]</var>
+		</line>
+		<line linenr="098" indent="&#160;">
+			<comment>* Called from the [Callback.Switch] of a custom menu input array</comment>
+		</line>
+		<line linenr="099" indent="&#160;">
+			<comment>*        every time a value selection value is changed</comment>
+		</line>
+		<line linenr="100" indent="&#160;">
+			<comment>* Value Argument contains:</comment>
+		</line>
+		<line linenr="101" indent="&#160;">
+			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		</line>
+		<line linenr="102" indent="&#160;">
+			<comment>*        element 1 = the id of the selected item</comment>
+		</line>
+		<line linenr="103" indent="&#160;">
+			<comment>*        element 2 = the complete value selection array</comment>
+		</line>
+		<line linenr="104" indent="&#160;">
+			<comment>*        element 3 = the complete menu array</comment>
+		</line>
+		<line linenr="105" indent="&#160;">
+			<comment>* Returns:</comment>
+		</line>
+		<line linenr="106" indent="&#160;">
+			<comment>*        a. a menu array (replaces the current menu)    OR</comment>
+		</line>
+		<line linenr="107" indent="&#160;">
+			<comment>*        b. null (to do nothing)</comment>
+		</line>
+		<line linenr="108" indent="&#160;" />
+		<line linenr="109" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="110" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.TabChanged]</var>
+		</line>
+		<line linenr="111" indent="&#160;">
+			<comment>* Called from the [Callback.TabChanged] of a custom menu input array</comment>
+		</line>
+		<line linenr="112" indent="&#160;">
+			<comment>* Value Argument contains:</comment>
+		</line>
+		<line linenr="113" indent="&#160;">
+			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		</line>
+		<line linenr="114" indent="&#160;">
+			<comment>*        element 1 = the current tab</comment>
+		</line>
+		<line linenr="115" indent="&#160;">
+			<comment>* Returns: TODO need to update this</comment>
+		</line>
+		<line linenr="116" indent="&#160;" />
+		<line linenr="117" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="118" indent="">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$state</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>[MEvent.Update]</var>
+		</line>
+		<line linenr="119" indent="&#160;">
+			<comment>* Called every time a dynamic custom menu (a type of input array) is redrawn</comment>
+		</line>
+		<line linenr="120" indent="&#160;" />
+		<line linenr="121" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="122" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="123" indent="" />
+		<line linenr="124" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="125" indent="" />
+	</sourcetext>
+	<codearray>
+		<sval type="array" size="10">
+			<sval type="string" val="tv.menu.events" />
+			<sval type="int" val="60" />
+			<sval type="string" val="" />
+			<sval type="int" val="1" />
+			<sval type="int" val="0" />
+			<sval type="array" size="4">
+				<sval type="string" val="object" />
+				<sval type="string" val="state" />
+				<sval type="string" val="value" />
+				<sval type="string" val="input" />
+			</sval>
+			<sval type="array" size="40">
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610611709" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="430" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="2568" />
+					<sval type="int" val="3" />
+					<sval type="int" val="5" />
+					<sval type="string" val="id_of_an_input" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610939" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="id_of_an_input" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610171" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="429" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610609403" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="434" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610608635" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="431" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607867" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="437" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607099" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="432" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610606331" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="498" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610605563" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="496" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604795" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="497" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604027" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="433" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603259" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="492" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610602747" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="494" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+				</sval>
+			</sval>
+			<sval type="array" size="3">
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="string" val="[THIS]" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="string" val="Event state" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="string" val="Value Argument" />
+				</sval>
+			</sval>
+			<sval type="array" size="97">
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Event script: Controls the menu" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Params: 3, as follows:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       1. &lt;RefObj&gt; that calls the script (ie [THIS])" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       2. String for the current event state" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       3. Value Argument of the return values from the current event state (Optional)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="0" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: Return value from state [MEvent.Arguments] or null from state [MEvent.Cancelled]" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="0" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called when the menu is first opened" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: an input array which defines the type of input to open, with a String ID for the current state" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Note: when input type is a custom menu array, the nextinput opens as another menu," />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="string" val="           but the old menu (with state) remains open in the background" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called after the player selects an option from the input" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a new input array (opens a new menu)      OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. [TRUE] (calls state [MEvent.Arguments])    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       c. null (to cancel and close)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="5" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called when returning [TRUE] from a state as the ID of the input" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="8" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: a final return value to the caller of this event script" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="8" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called if the player presses esc without selecting anything" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a new input array (allows you to display a previous menu)    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="11" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. null (to cancel and close)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="14" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called after [MEvent.Arguments]/[MEvent.Cancelled] for setting local/global variables to null (clean up)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="14" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: nothing" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="14" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called when selecting the next input when the input type is a custom menu" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 1 = the id of the menu it was run from" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 2 = the value the player selected (or null if cancelled)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 3 = the current state of the menu array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: " />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a new custom menu array to replace the existing menu data    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. an input array to open another input                                       OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       c. null to return to previous menu with no changes" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="17" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called when the player selects an item with a callback return value for the menu item" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains the value id set in the command" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a new input array (opens a new menu)                        OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. an update array (updates the menu)                            OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       c. null (to do nothing)                                                     OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       d. any other value (closes the menu, returns this value) " />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="20" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called from the [Callback.Selection] of a custom menu input array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       every time the menu selection is changed" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 1 = the id of the selected item" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 2 = the value of the item the player selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 3 = the current menu array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a menu array (updates the current menu)    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. null (to do nothing)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="23" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called from the [Callback.TradeBar] of a custom menu input array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       every time the menu is drawn (to change the trade bar w/o creating a new menu)" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 1 = the current trade bar array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a new tradebar array (updates the current tradebar)    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="26" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. null (to do nothing)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="26" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called from the [Callback.TradeBarCh] of a custom menu input array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       every time the player changes the tradebar" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains: TODO need to update this" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a menu array (updates the current menu)    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="29" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. null (to do nothing)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="29" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called from the [Callback.Switch] of a custom menu input array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       every time a value selection value is changed" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 1 = the id of the selected item" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 2 = the complete value selection array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 3 = the complete menu array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       a. a menu array (replaces the current menu)    OR" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       b. null (to do nothing)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="32" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called from the [Callback.TabChanged] of a custom menu input array" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Value Argument contains:" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="       element 1 = the current tab" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Returns: TODO need to update this" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="35" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="38" />
+					<sval type="int" val="1" />
+					<sval type="string" val="Called every time a dynamic custom menu (a type of input array) is redrawn" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="38" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="39" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="39" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="40" />
+					<sval type="int" val="2" />
+				</sval>
+			</sval>
+			<sval type="int" val="0" />
+		</sval>
+	</codearray>
+</script>

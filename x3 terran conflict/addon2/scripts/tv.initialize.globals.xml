@@ -170,15 +170,37 @@
 			<text>=</text>
 			<var>1</var>
 		</line>
-		<line linenr="017" indent="">
+		<line linenr="017" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.initialize.global</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.hotkey.menu.tvm'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>1</var>
+		</line>
+		<line linenr="018" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="018" indent="" />
-		<line linenr="019" indent="">
+		<line linenr="019" indent="" />
+		<line linenr="020" indent="">
 			<var>Load.Constants</var>
 			<text>:</text>
 		</line>
-		<line linenr="020" indent="&#160;">
+		<line linenr="021" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -194,7 +216,7 @@
 			<text>=</text>
 			<var>2147483647</var>
 		</line>
-		<line linenr="021" indent="&#160;">
+		<line linenr="022" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -210,7 +232,7 @@
 			<text>=</text>
 			<var>-2147483647</var>
 		</line>
-		<line linenr="022" indent="&#160;">
+		<line linenr="023" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -226,7 +248,7 @@
 			<text>=</text>
 			<var>5000</var>
 		</line>
-		<line linenr="023" indent="&#160;">
+		<line linenr="024" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -242,7 +264,7 @@
 			<text>=</text>
 			<var>2500</var>
 		</line>
-		<line linenr="024" indent="&#160;">
+		<line linenr="025" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -258,7 +280,7 @@
 			<text>=</text>
 			<var>100</var>
 		</line>
-		<line linenr="025" indent="&#160;">
+		<line linenr="026" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -274,7 +296,7 @@
 			<text>=</text>
 			<var>1</var>
 		</line>
-		<line linenr="026" indent="&#160;">
+		<line linenr="027" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -290,7 +312,7 @@
 			<text>=</text>
 			<var>10000</var>
 		</line>
-		<line linenr="027" indent="&#160;">
+		<line linenr="028" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -306,7 +328,7 @@
 			<text>=</text>
 			<var>2000</var>
 		</line>
-		<line linenr="028" indent="&#160;">
+		<line linenr="029" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -322,7 +344,7 @@
 			<text>=</text>
 			<var>10</var>
 		</line>
-		<line linenr="029" indent="&#160;">
+		<line linenr="030" indent="&#160;">
 			<text>set</text>
 			<text> </text>
 			<text>global</text>
@@ -338,15 +360,15 @@
 			<text>=</text>
 			<var>13000</var>
 		</line>
-		<line linenr="030" indent="">
+		<line linenr="031" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="031" indent="" />
-		<line linenr="032" indent="">
+		<line linenr="032" indent="" />
+		<line linenr="033" indent="">
 			<var>Load.Tasks</var>
 			<text>:</text>
 		</line>
-		<line linenr="033" indent="&#160;" interruptable="@">
+		<line linenr="034" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -368,7 +390,7 @@
 			<text>=</text>
 			<var>12000</var>
 		</line>
-		<line linenr="034" indent="&#160;" interruptable="@">
+		<line linenr="035" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -390,7 +412,7 @@
 			<text>=</text>
 			<var>12001</var>
 		</line>
-		<line linenr="035" indent="&#160;" interruptable="@">
+		<line linenr="036" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -412,7 +434,7 @@
 			<text>=</text>
 			<var>12002</var>
 		</line>
-		<line linenr="036" indent="&#160;" interruptable="@">
+		<line linenr="037" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -434,7 +456,7 @@
 			<text>=</text>
 			<var>12003</var>
 		</line>
-		<line linenr="037" indent="&#160;" interruptable="@">
+		<line linenr="038" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -456,7 +478,7 @@
 			<text>=</text>
 			<var>12004</var>
 		</line>
-		<line linenr="038" indent="&#160;" interruptable="@">
+		<line linenr="039" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -478,7 +500,7 @@
 			<text>=</text>
 			<var>12005</var>
 		</line>
-		<line linenr="039" indent="&#160;" interruptable="@">
+		<line linenr="040" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -500,23 +522,23 @@
 			<text>=</text>
 			<var>12006</var>
 		</line>
-		<line linenr="040" indent="">
+		<line linenr="041" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="041" indent="" />
-		<line linenr="042" indent="">
+		<line linenr="042" indent="" />
+		<line linenr="043" indent="">
 			<var>Load.i18n</var>
 			<text>:</text>
 		</line>
-		<line linenr="043" indent="&#160;">
+		<line linenr="044" indent="&#160;">
 			<var>$page</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
 			<var>80001</var>
 		</line>
-		<line linenr="044" indent="&#160;" />
-		<line linenr="045" indent="&#160;" interruptable="@">
+		<line linenr="045" indent="&#160;" />
+		<line linenr="046" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -546,7 +568,7 @@
 			<text>=</text>
 			<text>'tv.i18n.command.destruct.title'</text>
 		</line>
-		<line linenr="046" indent="&#160;" interruptable="@">
+		<line linenr="047" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -576,7 +598,7 @@
 			<text>=</text>
 			<text>'tv.i18n.command.destruct.player'</text>
 		</line>
-		<line linenr="047" indent="&#160;" interruptable="@">
+		<line linenr="048" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -606,7 +628,7 @@
 			<text>=</text>
 			<text>'tv.i18n.command.mapping.order'</text>
 		</line>
-		<line linenr="048" indent="&#160;" interruptable="@">
+		<line linenr="049" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -636,7 +658,7 @@
 			<text>=</text>
 			<text>'tv.i18n.command.mapping.error'</text>
 		</line>
-		<line linenr="049" indent="&#160;" interruptable="@">
+		<line linenr="050" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -664,37 +686,7 @@
 			<text> </text>
 			<text>global.name</text>
 			<text>=</text>
-			<text>'tv.i18n.hotkey.cheat.save.name'</text>
-		</line>
-		<line linenr="050" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>[THIS]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.set.global.loadtext</call>
-			<text> </text>
-			<text>:</text>
-			<text> </text>
-			<text>page</text>
-			<text>=</text>
-			<var>$page</var>
-			<text> </text>
-			<text>id</text>
-			<text>=</text>
-			<var>5</var>
-			<text> </text>
-			<text>datatype</text>
-			<text>=</text>
-			<var>[DATATYPE_STRING]</var>
-			<text> </text>
-			<text>global.name</text>
-			<text>=</text>
-			<text>'tv.i18n.hotkey.cheat.addsats.name'</text>
+			<text>'tv.i18n.hotkey.menu.tvm.name'</text>
 		</line>
 		<line linenr="051" indent="">
 			<text>endsub</text>
@@ -1014,15 +1006,15 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="14" />
+					<sval type="int" val="15" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="26" />
+					<sval type="int" val="27" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="35" />
+					<sval type="int" val="36" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
@@ -1094,6 +1086,18 @@
 					<sval type="int" val="2" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.feature.tradeembargo" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="10">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.initialize.global" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="2" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.hotkey.menu.tvm" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 				</sval>
@@ -1359,23 +1363,7 @@
 					<sval type="int" val="20" />
 					<sval type="int" val="5" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.i18n.hotkey.cheat.save.name" />
-				</sval>
-				<sval type="array" size="14">
-					<sval type="int" val="102" />
-					<sval type="string" val="tv.set.global.loadtext" />
-					<sval type="int" val="-2147483647" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="4" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
-					<sval type="int" val="4" />
-					<sval type="int" val="5" />
-					<sval type="int" val="20" />
-					<sval type="int" val="5" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.i18n.hotkey.cheat.addsats.name" />
+					<sval type="string" val="tv.i18n.hotkey.menu.tvm.name" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
@@ -1583,19 +1571,19 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="14" />
+					<sval type="int" val="15" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="26" />
+					<sval type="int" val="27" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="35" />
+					<sval type="int" val="36" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="37" />
+					<sval type="int" val="38" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
