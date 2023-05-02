@@ -79,7 +79,7 @@
 			<text> </text>
 			<text>script</text>
 			<text>=</text>
-			<call>tv.tasks</call>
+			<call>tv.task</call>
 			<text> </text>
 			<text>prio</text>
 			<text>=</text>
@@ -133,7 +133,7 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="12" />
 					<sval type="int" val="2134" />
-					<sval type="string" val="tv.tasks" />
+					<sval type="string" val="tv.task" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="5" />
