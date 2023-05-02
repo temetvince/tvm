@@ -7,31 +7,39 @@
 	<engineversion>60</engineversion>
 	<description></description>
 	<arguments>
-		<argument index="1" name="object" type="Var/Ship/Station" desc="[THIS]" />
+		<argument index="1" name="this" type="Var/Ship/Station" desc="[THIS]" />
 		<argument index="2" name="state" type="Var/String" desc="Event state" />
-		<argument index="3" name="value" type="Value" desc="Value Argument" />
+		<argument index="3" name="value.argument" type="Value" desc="Value Argument" />
 	</arguments>
 	<sourcetext>
 		<line linenr="001" indent="">
-			<comment>* Event script: Controls the menu</comment>
+			<var>$local</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$this</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.local'</text>
 		</line>
-		<line linenr="002" indent="">
-			<comment>* Params: 3, as follows:</comment>
-		</line>
+		<line linenr="002" indent="" />
 		<line linenr="003" indent="">
-			<comment>*        1. &lt;RefObj&gt; that calls the script (ie [THIS])</comment>
+			<text>gosub</text>
+			<text> </text>
+			<var>LoadGlobals</var>
+			<text>:</text>
 		</line>
-		<line linenr="004" indent="">
-			<comment>*        2. String for the current event state</comment>
-		</line>
+		<line linenr="004" indent="" />
 		<line linenr="005" indent="">
-			<comment>*        3. Value Argument of the return values from the current event state (Optional)</comment>
-		</line>
-		<line linenr="006" indent="">
-			<comment>* Returns: Return value from state [MEvent.Arguments] or null from state [MEvent.Cancelled]</comment>
-		</line>
-		<line linenr="007" indent="" />
-		<line linenr="008" indent="">
 			<text>if</text>
 			<text> </text>
 			<var>$state</var>
@@ -40,20 +48,86 @@
 			<text> </text>
 			<var>[MEvent.Start]</var>
 		</line>
-		<line linenr="009" indent="&#160;">
-			<comment>* Called when the menu is first opened</comment>
+		<line linenr="006" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>BuildMenu</var>
+			<text>:</text>
 		</line>
-		<line linenr="010" indent="&#160;">
-			<comment>* Returns: an input array which defines the type of input to open, with a String ID for the current state</comment>
+		<line linenr="007" indent="&#160;" />
+		<line linenr="008" indent="&#160;" interruptable="@">
+			<var>$t.tvm.color</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.blue</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.tvm</var>
+		</line>
+		<line linenr="009" indent="&#160;" interruptable="@">
+			<var>$t.controlcenter.color</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.cyan</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.controlcenter</var>
+		</line>
+		<line linenr="010" indent="&#160;" interruptable="@">
+			<var>$t.tvm.long.color</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.blue</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.tvm.long</var>
 		</line>
 		<line linenr="011" indent="&#160;">
-			<comment>* Note: when input type is a custom menu array, the nextinput opens as another menu,</comment>
+			<var>$t.main</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.tvm.color</var>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<text>' '</text>
+			<text> </text>
+			<text>+</text>
+			<text> </text>
+			<var>$t.controlcenter.color</var>
 		</line>
 		<line linenr="012" indent="&#160;">
-			<comment>*            but the old menu (with state) remains open in the background</comment>
-		</line>
-		<line linenr="013" indent="&#160;" />
-		<line linenr="014" indent="&#160;">
 			<var>$input</var>
 			<text> </text>
 			<text>=</text>
@@ -63,23 +137,33 @@
 			<text>input</text>
 			<text>:</text>
 			<text> </text>
-			<text>open</text>
-			<text> </text>
-			<text>property</text>
-			<text> </text>
-			<text>page</text>
-			<text>,</text>
-			<text> </text>
 			<text>id</text>
 			<text>=</text>
-			<text>'id_of_an_input'</text>
+			<text>'id'</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu</var>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<var>$t.main</var>
+			<text> </text>
+			<text>description</text>
+			<text>=</text>
+			<var>$t.tvm.long.color</var>
+			<text> </text>
+			<text>callback</text>
+			<text>=</text>
+			<var>[Callback.Switch]</var>
 		</line>
-		<line linenr="015" indent="&#160;">
+		<line linenr="013" indent="&#160;" />
+		<line linenr="014" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>$input</var>
 		</line>
-		<line linenr="016" indent="">
+		<line linenr="015" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -88,53 +172,14 @@
 			<text> </text>
 			<text>==</text>
 			<text> </text>
-			<text>'id_of_an_input'</text>
+			<text>'id'</text>
 		</line>
-		<line linenr="017" indent="&#160;">
-			<comment>* Called after the player selects an option from the input</comment>
-		</line>
-		<line linenr="018" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="019" indent="&#160;">
-			<comment>*        a. a new input array (opens a new menu)      OR</comment>
-		</line>
-		<line linenr="020" indent="&#160;">
-			<comment>*        b. [TRUE] (calls state [MEvent.Arguments])    OR</comment>
-		</line>
-		<line linenr="021" indent="&#160;">
-			<comment>*        c. null (to cancel and close)</comment>
-		</line>
-		<line linenr="022" indent="&#160;" />
-		<line linenr="023" indent="&#160;">
+		<line linenr="016" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="024" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Arguments]</var>
-		</line>
-		<line linenr="025" indent="&#160;">
-			<comment>* Called when returning [TRUE] from a state as the ID of the input</comment>
-		</line>
-		<line linenr="026" indent="&#160;">
-			<comment>* Returns: a final return value to the caller of this event script</comment>
-		</line>
-		<line linenr="027" indent="&#160;" />
-		<line linenr="028" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="029" indent="">
+		<line linenr="017" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -145,256 +190,12 @@
 			<text> </text>
 			<var>[MEvent.Cancelled]</var>
 		</line>
-		<line linenr="030" indent="&#160;">
-			<comment>* Called if the player presses esc without selecting anything</comment>
-		</line>
-		<line linenr="031" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="032" indent="&#160;">
-			<comment>*        a. a new input array (allows you to display a previous menu)    OR</comment>
-		</line>
-		<line linenr="033" indent="&#160;">
-			<comment>*        b. null (to cancel and close)</comment>
-		</line>
-		<line linenr="034" indent="&#160;" />
-		<line linenr="035" indent="&#160;">
+		<line linenr="018" indent="&#160;">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="036" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Finished]</var>
-		</line>
-		<line linenr="037" indent="&#160;">
-			<comment>* Called after [MEvent.Arguments]/[MEvent.Cancelled] for setting local/global variables to null (clean up)</comment>
-		</line>
-		<line linenr="038" indent="&#160;">
-			<comment>* Returns: nothing</comment>
-		</line>
-		<line linenr="039" indent="&#160;" />
-		<line linenr="040" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="041" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Returned]</var>
-		</line>
-		<line linenr="042" indent="&#160;">
-			<comment>* Called when selecting the next input when the input type is a custom menu</comment>
-		</line>
-		<line linenr="043" indent="&#160;">
-			<comment>* Value Argument contains:</comment>
-		</line>
-		<line linenr="044" indent="&#160;">
-			<comment>*        element 0 = the id of the input that's just been selected</comment>
-		</line>
-		<line linenr="045" indent="&#160;">
-			<comment>*        element 1 = the id of the menu it was run from</comment>
-		</line>
-		<line linenr="046" indent="&#160;">
-			<comment>*        element 2 = the value the player selected (or null if cancelled)</comment>
-		</line>
-		<line linenr="047" indent="&#160;">
-			<comment>*        element 3 = the current state of the menu array</comment>
-		</line>
-		<line linenr="048" indent="&#160;">
-			<comment>* Returns: </comment>
-		</line>
-		<line linenr="049" indent="&#160;">
-			<comment>*        a. a new custom menu array to replace the existing menu data    OR</comment>
-		</line>
-		<line linenr="050" indent="&#160;">
-			<comment>*        b. an input array to open another input                                       OR</comment>
-		</line>
-		<line linenr="051" indent="&#160;">
-			<comment>*        c. null to return to previous menu with no changes</comment>
-		</line>
-		<line linenr="052" indent="&#160;" />
-		<line linenr="053" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="054" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Select]</var>
-		</line>
-		<line linenr="055" indent="&#160;">
-			<comment>* Called when the player selects an item with a callback return value for the menu item</comment>
-		</line>
-		<line linenr="056" indent="&#160;">
-			<comment>* Value Argument contains the value id set in the command</comment>
-		</line>
-		<line linenr="057" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="058" indent="&#160;">
-			<comment>*        a. a new input array (opens a new menu)                        OR</comment>
-		</line>
-		<line linenr="059" indent="&#160;">
-			<comment>*        b. an update array (updates the menu)                            OR</comment>
-		</line>
-		<line linenr="060" indent="&#160;">
-			<comment>*        c. null (to do nothing)                                                     OR</comment>
-		</line>
-		<line linenr="061" indent="&#160;">
-			<comment>*        d. any other value (closes the menu, returns this value) </comment>
-		</line>
-		<line linenr="062" indent="&#160;" />
-		<line linenr="063" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="064" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Selection]</var>
-		</line>
-		<line linenr="065" indent="&#160;">
-			<comment>* Called from the [Callback.Selection] of a custom menu input array</comment>
-		</line>
-		<line linenr="066" indent="&#160;">
-			<comment>*        every time the menu selection is changed</comment>
-		</line>
-		<line linenr="067" indent="&#160;">
-			<comment>* Value Argument contains:</comment>
-		</line>
-		<line linenr="068" indent="&#160;">
-			<comment>*        element 0 = the id of the input that's just been selected</comment>
-		</line>
-		<line linenr="069" indent="&#160;">
-			<comment>*        element 1 = the id of the selected item</comment>
-		</line>
-		<line linenr="070" indent="&#160;">
-			<comment>*        element 2 = the value of the item the player selected</comment>
-		</line>
-		<line linenr="071" indent="&#160;">
-			<comment>*        element 3 = the current menu array</comment>
-		</line>
-		<line linenr="072" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="073" indent="&#160;">
-			<comment>*        a. a menu array (updates the current menu)    OR</comment>
-		</line>
-		<line linenr="074" indent="&#160;">
-			<comment>*        b. null (to do nothing)</comment>
-		</line>
-		<line linenr="075" indent="&#160;" />
-		<line linenr="076" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="077" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.TradeBar]</var>
-		</line>
-		<line linenr="078" indent="&#160;">
-			<comment>* Called from the [Callback.TradeBar] of a custom menu input array</comment>
-		</line>
-		<line linenr="079" indent="&#160;">
-			<comment>*        every time the menu is drawn (to change the trade bar w/o creating a new menu)</comment>
-		</line>
-		<line linenr="080" indent="&#160;">
-			<comment>* Value Argument contains:</comment>
-		</line>
-		<line linenr="081" indent="&#160;">
-			<comment>*        element 0 = the id of the input that's just been selected</comment>
-		</line>
-		<line linenr="082" indent="&#160;">
-			<comment>*        element 1 = the current trade bar array</comment>
-		</line>
-		<line linenr="083" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="084" indent="&#160;">
-			<comment>*        a. a new tradebar array (updates the current tradebar)    OR</comment>
-		</line>
-		<line linenr="085" indent="&#160;">
-			<comment>*        b. null (to do nothing)</comment>
-		</line>
-		<line linenr="086" indent="&#160;" />
-		<line linenr="087" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="088" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.TradeBarCh]</var>
-		</line>
-		<line linenr="089" indent="&#160;">
-			<comment>* Called from the [Callback.TradeBarCh] of a custom menu input array</comment>
-		</line>
-		<line linenr="090" indent="&#160;">
-			<comment>*        every time the player changes the tradebar</comment>
-		</line>
-		<line linenr="091" indent="&#160;">
-			<comment>* Value Argument contains: TODO need to update this</comment>
-		</line>
-		<line linenr="092" indent="&#160;">
-			<comment>* Returns:</comment>
-		</line>
-		<line linenr="093" indent="&#160;">
-			<comment>*        a. a menu array (updates the current menu)    OR</comment>
-		</line>
-		<line linenr="094" indent="&#160;">
-			<comment>*        b. null (to do nothing)</comment>
-		</line>
-		<line linenr="095" indent="&#160;" />
-		<line linenr="096" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="097" indent="">
+		<line linenr="019" indent="">
 			<text>else</text>
 			<text> </text>
 			<text>if</text>
@@ -405,104 +206,1874 @@
 			<text> </text>
 			<var>[MEvent.Switch]</var>
 		</line>
+		<line linenr="020" indent="&#160;">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value.argument</var>
+		</line>
+		<line linenr="021" indent="&#160;">
+			<var>$key</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<var>$value.argument</var>
+			<text> </text>
+			<text>(</text>
+			<var>1</var>
+			<text>)</text>
+		</line>
+		<line linenr="022" indent="&#160;">
+			<var>$element</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<var>$value.argument</var>
+			<text> </text>
+			<text>(</text>
+			<var>2</var>
+			<text>)</text>
+		</line>
+		<line linenr="023" indent="&#160;">
+			<var>$chosen</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<var>$value.argument</var>
+			<text> </text>
+			<text>(</text>
+			<var>3</var>
+			<text>)</text>
+			<text> </text>
+			<text>(</text>
+			<var>$element</var>
+			<text>)</text>
+		</line>
+		<line linenr="024" indent="&#160;" />
+		<line linenr="025" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.improvedpiloting</var>
+		</line>
+		<line linenr="026" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="027" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="028" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.overachiever</var>
+		</line>
+		<line linenr="029" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="030" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="031" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.standardizedfleetoperations</var>
+		</line>
+		<line linenr="032" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="033" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="034" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.collisionwarningsystem</var>
+		</line>
+		<line linenr="035" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="036" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="037" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.tradeembargo</var>
+		</line>
+		<line linenr="038" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="039" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="040" indent="&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.rememberhomebase</var>
+		</line>
+		<line linenr="041" indent="&#160;&#160;" interruptable="@">
+			<var>$value</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.get</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>chosen</text>
+			<text>=</text>
+			<var>$chosen</var>
+		</line>
+		<line linenr="042" indent="&#160;&#160;">
+			<text>array</text>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<text>table</text>
+			<text> </text>
+			<text>set</text>
+			<text> </text>
+			<var>$local</var>
+			<text> </text>
+			<text>(</text>
+			<var>$key</var>
+			<text>)</text>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$value</var>
+		</line>
+		<line linenr="043" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="044" indent="&#160;" />
+		<line linenr="045" indent="&#160;">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="046" indent="">
+			<text>end</text>
+		</line>
+		<line linenr="047" indent="" />
+		<line linenr="048" indent="">
+			<text>return</text>
+			<text> </text>
+			<var>null</var>
+		</line>
+		<line linenr="049" indent="" />
+		<line linenr="050" indent="">
+			<var>BuildMenu</var>
+			<text>:</text>
+		</line>
+		<line linenr="051" indent="&#160;">
+			<var>$menu</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
+		</line>
+		<line linenr="052" indent="&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>widthtype</text>
+			<text>=</text>
+			<var>[MenuWidth.Big]</var>
+		</line>
+		<line linenr="053" indent="&#160;" />
+		<line linenr="054" indent="&#160;">
+			<var>$width</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>120</var>
+		</line>
+		<line linenr="055" indent="&#160;" />
+		<line linenr="056" indent="&#160;">
+			<text>gosub</text>
+			<text> </text>
+			<var>FeaturesSection</var>
+			<text>:</text>
+		</line>
+		<line linenr="057" indent="">
+			<text>endsub</text>
+		</line>
+		<line linenr="058" indent="" />
+		<line linenr="059" indent="">
+			<var>FeaturesSection</var>
+			<text>:</text>
+		</line>
+		<line linenr="060" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.features</var>
+		</line>
+		<line linenr="061" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>:</text>
+			<text> </text>
+			<text>title</text>
+			<text>=</text>
+			<var>$text</var>
+		</line>
+		<line linenr="062" indent="&#160;" />
+		<line linenr="063" indent="&#160;">
+			<var>$menu.side</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
+		</line>
+		<line linenr="064" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.collisionwarningsystem</var>
+		</line>
+		<line linenr="065" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
+		</line>
+		<line linenr="066" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.collisionwarningsystem.description</var>
+		</line>
+		<line linenr="067" indent="&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
+		</line>
+		<line linenr="068" indent="&#160;">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.collisionwarningsystem</var>
+		</line>
+		<line linenr="069" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.collisionwarningsystem</var>
+		</line>
+		<line linenr="070" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="071" indent="&#160;" />
+		<line linenr="072" indent="&#160;">
+			<var>$menu.side</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
+		</line>
+		<line linenr="073" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.improvedpiloting</var>
+		</line>
+		<line linenr="074" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
+		</line>
+		<line linenr="075" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.improvedpiloting.description</var>
+		</line>
+		<line linenr="076" indent="&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
+		</line>
+		<line linenr="077" indent="&#160;">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.improvedpiloting</var>
+		</line>
+		<line linenr="078" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.improvedpiloting</var>
+		</line>
+		<line linenr="079" indent="&#160;">
+			<var>$temp</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$feature.improvedpiloting</var>
+		</line>
+		<line linenr="080" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="081" indent="&#160;" />
+		<line linenr="082" indent="&#160;">
+			<var>$menu.side</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
+		</line>
+		<line linenr="083" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.overachiever</var>
+		</line>
+		<line linenr="084" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
+		</line>
+		<line linenr="085" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.overachiever.description</var>
+		</line>
+		<line linenr="086" indent="&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
+		</line>
+		<line linenr="087" indent="&#160;">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.overachiever</var>
+		</line>
+		<line linenr="088" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.overachiever</var>
+		</line>
+		<line linenr="089" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
+		</line>
+		<line linenr="090" indent="&#160;" />
+		<line linenr="091" indent="&#160;">
+			<var>$menu.side</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
+		</line>
+		<line linenr="092" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.standardizedfleetoperations</var>
+		</line>
+		<line linenr="093" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
+		</line>
+		<line linenr="094" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.standardizedfleetoperations.description</var>
+		</line>
+		<line linenr="095" indent="&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
+		</line>
+		<line linenr="096" indent="&#160;">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.standardizedfleetoperations</var>
+		</line>
+		<line linenr="097" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.standardizedfleetoperations</var>
+		</line>
 		<line linenr="098" indent="&#160;">
-			<comment>* Called from the [Callback.Switch] of a custom menu input array</comment>
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
 		</line>
-		<line linenr="099" indent="&#160;">
-			<comment>*        every time a value selection value is changed</comment>
-		</line>
+		<line linenr="099" indent="&#160;" />
 		<line linenr="100" indent="&#160;">
-			<comment>* Value Argument contains:</comment>
+			<var>$menu.side</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
 		</line>
-		<line linenr="101" indent="&#160;">
-			<comment>*        element 0 = the id of the input that's just been selected</comment>
+		<line linenr="101" indent="&#160;" interruptable="@">
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.tradeembargo</var>
 		</line>
 		<line linenr="102" indent="&#160;">
-			<comment>*        element 1 = the id of the selected item</comment>
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
 		</line>
 		<line linenr="103" indent="&#160;">
-			<comment>*        element 2 = the complete value selection array</comment>
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.tradeembargo.description</var>
 		</line>
 		<line linenr="104" indent="&#160;">
-			<comment>*        element 3 = the complete menu array</comment>
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
 		</line>
 		<line linenr="105" indent="&#160;">
-			<comment>* Returns:</comment>
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.tradeembargo</var>
 		</line>
-		<line linenr="106" indent="&#160;">
-			<comment>*        a. a menu array (replaces the current menu)    OR</comment>
+		<line linenr="106" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.tradeembargo</var>
 		</line>
 		<line linenr="107" indent="&#160;">
-			<comment>*        b. null (to do nothing)</comment>
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
+			<text>return</text>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
 		</line>
 		<line linenr="108" indent="&#160;" />
 		<line linenr="109" indent="&#160;">
-			<text>return</text>
+			<var>$menu.side</var>
 			<text> </text>
-			<var>null</var>
+			<text>=</text>
+			<text> </text>
+			<text>create</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>array</text>
 		</line>
-		<line linenr="110" indent="">
-			<text>else</text>
+		<line linenr="110" indent="&#160;" interruptable="@">
+			<var>$text</var>
 			<text> </text>
-			<text>if</text>
+			<text>=</text>
 			<text> </text>
-			<var>$state</var>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
 			<text> </text>
-			<text>==</text>
+			<text>call</text>
 			<text> </text>
-			<var>[MEvent.TabChanged]</var>
+			<text>script</text>
+			<text> </text>
+			<call>tv.color.orange</call>
+			<text>:</text>
+			<text> </text>
+			<text>string</text>
+			<text>=</text>
+			<var>$t.rememberhomebase</var>
 		</line>
 		<line linenr="111" indent="&#160;">
-			<comment>* Called from the [Callback.TabChanged] of a custom menu input array</comment>
+			<text>add</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>heading</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>,</text>
+			<text> </text>
+			<text>heading</text>
+			<text>=</text>
+			<var>$text</var>
 		</line>
 		<line linenr="112" indent="&#160;">
-			<comment>* Value Argument contains:</comment>
+			<text>add</text>
+			<text> </text>
+			<text>custom</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>info</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>array</text>
+			<text> </text>
+			<var>$menu.side</var>
+			<text>:</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$t.rememberhomebase.description</var>
 		</line>
 		<line linenr="113" indent="&#160;">
-			<comment>*        element 0 = the id of the input that's just been selected</comment>
+			<text>set</text>
+			<text> </text>
+			<text>menu</text>
+			<text> </text>
+			<text>line</text>
+			<text> </text>
+			<text>option</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>side</text>
+			<text> </text>
+			<text>menu</text>
+			<text>=</text>
+			<var>$menu.side</var>
 		</line>
 		<line linenr="114" indent="&#160;">
-			<comment>*        element 1 = the current tab</comment>
+			<var>$text</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>$t.rememberhomebase</var>
 		</line>
-		<line linenr="115" indent="&#160;">
-			<comment>* Returns: TODO need to update this</comment>
+		<line linenr="115" indent="&#160;" interruptable="@">
+			<var>$values</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.menu.tvm.onoff.set</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>feature</text>
+			<text>=</text>
+			<var>$feature.rememberhomebase</var>
 		</line>
-		<line linenr="116" indent="&#160;" />
-		<line linenr="117" indent="&#160;">
+		<line linenr="116" indent="&#160;">
+			<text>add</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>selection</text>
+			<text> </text>
+			<text>to</text>
+			<text> </text>
+			<text>menu</text>
+			<text>:</text>
+			<text> </text>
+			<var>$menu</var>
+			<text>,</text>
+			<text> </text>
+			<text>text</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>value</text>
+			<text> </text>
+			<text>array</text>
+			<text>=</text>
+			<var>$values</var>
+			<text>,</text>
+			<text> </text>
+			<text>default</text>
+			<text>=</text>
+			<var>null</var>
+			<text>,</text>
+			<text> </text>
 			<text>return</text>
 			<text> </text>
-			<var>null</var>
+			<text>id</text>
+			<text>=</text>
+			<var>$text</var>
+			<text>,</text>
+			<text> </text>
+			<text>width</text>
+			<text>=</text>
+			<var>$width</var>
+			<text> </text>
+			<text>allowtabs</text>
+			<text>=</text>
+			<var>[FALSE]</var>
 		</line>
-		<line linenr="118" indent="">
-			<text>else</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$state</var>
-			<text> </text>
-			<text>==</text>
-			<text> </text>
-			<var>[MEvent.Update]</var>
+		<line linenr="117" indent="">
+			<text>endsub</text>
 		</line>
-		<line linenr="119" indent="&#160;">
-			<comment>* Called every time a dynamic custom menu (a type of input array) is redrawn</comment>
+		<line linenr="118" indent="" />
+		<line linenr="119" indent="">
+			<var>LoadGlobals</var>
+			<text>:</text>
 		</line>
-		<line linenr="120" indent="&#160;" />
+		<line linenr="120" indent="&#160;">
+			<var>$feature.improvedpiloting</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.improvedpiloting'</text>
+		</line>
 		<line linenr="121" indent="&#160;">
-			<text>return</text>
+			<var>$feature.overachiever</var>
 			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="122" indent="">
-			<text>end</text>
-		</line>
-		<line linenr="123" indent="" />
-		<line linenr="124" indent="">
-			<text>return</text>
+			<text>=</text>
 			<text> </text>
-			<var>null</var>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.overachiever'</text>
 		</line>
-		<line linenr="125" indent="" />
+		<line linenr="122" indent="&#160;">
+			<var>$feature.standardizedfleetoperations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.standardizedfleetoperations'</text>
+		</line>
+		<line linenr="123" indent="&#160;">
+			<var>$feature.collisionwarningsystem</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.collisionwarningsystem'</text>
+		</line>
+		<line linenr="124" indent="&#160;">
+			<var>$feature.tradeembargo</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.tradeembargo'</text>
+		</line>
+		<line linenr="125" indent="&#160;">
+			<var>$feature.rememberhomebase</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.rememberhomebase'</text>
+		</line>
+		<line linenr="126" indent="&#160;" />
+		<line linenr="127" indent="&#160;">
+			<var>$t.tvm</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.tvm'</text>
+		</line>
+		<line linenr="128" indent="&#160;">
+			<var>$t.controlcenter</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.controlcenter'</text>
+		</line>
+		<line linenr="129" indent="&#160;">
+			<var>$t.tvm.long</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.tvm.long'</text>
+		</line>
+		<line linenr="130" indent="&#160;">
+			<var>$t.features</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.features'</text>
+		</line>
+		<line linenr="131" indent="&#160;" />
+		<line linenr="132" indent="&#160;">
+			<var>$t.improvedpiloting</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.improvedpiloting'</text>
+		</line>
+		<line linenr="133" indent="&#160;">
+			<var>$t.overachiever</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.overachiever'</text>
+		</line>
+		<line linenr="134" indent="&#160;">
+			<var>$t.standardizedfleetoperations</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.standardizedfleetoperations'</text>
+		</line>
+		<line linenr="135" indent="&#160;">
+			<var>$t.collisionwarningsystem</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.collisionwarningsystem'</text>
+		</line>
+		<line linenr="136" indent="&#160;">
+			<var>$t.tradeembargo</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.tradeembargo'</text>
+		</line>
+		<line linenr="137" indent="&#160;">
+			<var>$t.rememberhomebase</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.rememberhomebase'</text>
+		</line>
+		<line linenr="138" indent="&#160;" />
+		<line linenr="139" indent="&#160;">
+			<var>$t.improvedpiloting.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.improvedpiloting.description'</text>
+		</line>
+		<line linenr="140" indent="&#160;">
+			<var>$t.overachiever.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.overachiever.description'</text>
+		</line>
+		<line linenr="141" indent="&#160;">
+			<var>$t.standardizedfleetoperations.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.standardizedfleetoperations.description'</text>
+		</line>
+		<line linenr="142" indent="&#160;">
+			<var>$t.collisionwarningsystem.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.collisionwarningsystem.description'</text>
+		</line>
+		<line linenr="143" indent="&#160;">
+			<var>$t.tradeembargo.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.tradeembargo.description'</text>
+		</line>
+		<line linenr="144" indent="&#160;">
+			<var>$t.rememberhomebase.description</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.rememberhomebase.description'</text>
+		</line>
+		<line linenr="145" indent="">
+			<text>endsub</text>
+		</line>
+		<line linenr="146" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -511,16 +2082,65 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="4">
-				<sval type="string" val="object" />
+			<sval type="array" size="41">
+				<sval type="string" val="this" />
 				<sval type="string" val="state" />
-				<sval type="string" val="value" />
+				<sval type="string" val="value.argument" />
+				<sval type="string" val="local" />
+				<sval type="string" val="t.tvm.color" />
+				<sval type="string" val="t.tvm" />
+				<sval type="string" val="t.controlcenter.color" />
+				<sval type="string" val="t.controlcenter" />
+				<sval type="string" val="t.tvm.long.color" />
+				<sval type="string" val="t.tvm.long" />
+				<sval type="string" val="t.main" />
 				<sval type="string" val="input" />
+				<sval type="string" val="menu" />
+				<sval type="string" val="values" />
+				<sval type="string" val="key" />
+				<sval type="string" val="element" />
+				<sval type="string" val="chosen" />
+				<sval type="string" val="t.improvedpiloting" />
+				<sval type="string" val="value" />
+				<sval type="string" val="t.overachiever" />
+				<sval type="string" val="t.standardizedfleetoperations" />
+				<sval type="string" val="t.collisionwarningsystem" />
+				<sval type="string" val="t.tradeembargo" />
+				<sval type="string" val="t.rememberhomebase" />
+				<sval type="string" val="width" />
+				<sval type="string" val="text" />
+				<sval type="string" val="t.features" />
+				<sval type="string" val="menu.side" />
+				<sval type="string" val="t.collisionwarningsystem.description" />
+				<sval type="string" val="feature.collisionwarningsystem" />
+				<sval type="string" val="t.improvedpiloting.description" />
+				<sval type="string" val="feature.improvedpiloting" />
+				<sval type="string" val="temp" />
+				<sval type="string" val="t.overachiever.description" />
+				<sval type="string" val="feature.overachiever" />
+				<sval type="string" val="t.standardizedfleetoperations.description" />
+				<sval type="string" val="feature.standardizedfleetoperations" />
+				<sval type="string" val="t.tradeembargo.description" />
+				<sval type="string" val="feature.tradeembargo" />
+				<sval type="string" val="t.rememberhomebase.description" />
+				<sval type="string" val="feature.rememberhomebase" />
 			</sval>
-			<sval type="array" size="40">
+			<sval type="array" size="130">
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.local" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="106" />
+				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610611709" />
+					<sval type="int" val="-1610609917" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
@@ -533,53 +2153,92 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="2568" />
-					<sval type="int" val="3" />
-					<sval type="int" val="5" />
-					<sval type="string" val="id_of_an_input" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
-				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
+					<sval type="int" val="1167" />
+					<sval type="int" val="47" />
 				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610610939" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="5" />
-					<sval type="string" val="id_of_an_input" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610610171" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.blue" />
+					<sval type="int" val="4" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="429" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.cyan" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.blue" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="19">
+					<sval type="int" val="104" />
+					<sval type="int" val="10" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="5" />
+					<sval type="string" val=" " />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="6" />
+					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="11" />
+					<sval type="int" val="-4" />
+				</sval>
+				<sval type="array" size="12">
+					<sval type="int" val="1649" />
+					<sval type="int" val="11" />
+					<sval type="int" val="5" />
+					<sval type="string" val="id" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="10" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="582" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="103" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="11" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="46" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610609147" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="id" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -594,11 +2253,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="39" />
+					<sval type="int" val="46" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610609403" />
+					<sval type="int" val="-1610608379" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
@@ -618,155 +2277,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="39" />
+					<sval type="int" val="46" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610608635" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="431" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610607867" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="437" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610607099" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="432" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610606331" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="498" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610605563" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="496" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610604795" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="497" />
-					<sval type="int" val="15" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610604027" />
+					<sval type="int" val="-1610600955" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
@@ -779,23 +2294,49 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="13" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="15" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="1081" />
+					<sval type="int" val="16" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="15" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610603259" />
+					<sval type="int" val="-1610606077" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="492" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -803,23 +2344,37 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="39" />
+					<sval type="int" val="45" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610602747" />
+					<sval type="int" val="-1610605051" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="494" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
 					<sval type="int" val="15" />
 					<sval type="int" val="0" />
 					<sval type="int" val="3" />
@@ -827,6 +2382,177 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610604027" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603003" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610601979" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="45" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610601211" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.get" />
+					<sval type="int" val="18" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="130" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="14" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="18" />
+				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
 					<sval type="int" val="0" />
@@ -836,6 +2562,635 @@
 					<sval type="int" val="103" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="BuildMenu" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="12" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1666" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="601" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="24" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="120" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="53" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="FeaturesSection" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1448" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="21" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="17" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="32" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="31" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="33" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="19" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="34" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="20" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="36" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="37" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="22" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="38" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1445" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.color.orange" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1546" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="1446" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="2815" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="27" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="25" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="23" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="8">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.menu.tvm.onoff.set" />
+					<sval type="int" val="13" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="40" />
+				</sval>
+				<sval type="array" size="15">
+					<sval type="int" val="1920" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="13" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="25" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="24" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="LoadGlobals" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.improvedpiloting" />
+					<sval type="int" val="31" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.overachiever" />
+					<sval type="int" val="34" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.standardizedfleetoperations" />
+					<sval type="int" val="36" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.collisionwarningsystem" />
+					<sval type="int" val="29" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.tradeembargo" />
+					<sval type="int" val="38" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.rememberhomebase" />
+					<sval type="int" val="40" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.tvm" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.controlcenter" />
+					<sval type="int" val="7" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.tvm.long" />
+					<sval type="int" val="9" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.features" />
+					<sval type="int" val="26" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.improvedpiloting" />
+					<sval type="int" val="17" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.overachiever" />
+					<sval type="int" val="19" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.standardizedfleetoperations" />
+					<sval type="int" val="20" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.collisionwarningsystem" />
+					<sval type="int" val="21" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.tradeembargo" />
+					<sval type="int" val="22" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.rememberhomebase" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.improvedpiloting.description" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.overachiever.description" />
+					<sval type="int" val="33" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.standardizedfleetoperations.description" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.collisionwarningsystem.description" />
+					<sval type="int" val="28" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.tradeembargo.description" />
+					<sval type="int" val="37" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.rememberhomebase.description" />
+					<sval type="int" val="39" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
 				</sval>
 			</sval>
 			<sval type="array" size="3">
@@ -852,473 +3207,101 @@
 					<sval type="string" val="Value Argument" />
 				</sval>
 			</sval>
-			<sval type="array" size="97">
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Event script: Controls the menu" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Params: 3, as follows:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       1. &lt;RefObj&gt; that calls the script (ie [THIS])" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       2. String for the current event state" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       3. Value Argument of the return values from the current event state (Optional)" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="0" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: Return value from state [MEvent.Arguments] or null from state [MEvent.Cancelled]" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="0" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="1" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called when the menu is first opened" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="1" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: an input array which defines the type of input to open, with a String ID for the current state" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="1" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Note: when input type is a custom menu array, the nextinput opens as another menu," />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="1" />
-					<sval type="int" val="1" />
-					<sval type="string" val="           but the old menu (with state) remains open in the background" />
-				</sval>
+			<sval type="array" size="24">
 				<sval type="array" size="2">
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="5" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called after the player selects an option from the input" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="5" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="5" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a new input array (opens a new menu)      OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="5" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. [TRUE] (calls state [MEvent.Arguments])    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="5" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       c. null (to cancel and close)" />
-				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="5" />
 					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="8" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called when returning [TRUE] from a state as the ID of the input" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="8" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: a final return value to the caller of this event script" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="8" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="11" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called if the player presses esc without selecting anything" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="11" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="11" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a new input array (allows you to display a previous menu)    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="11" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. null (to cancel and close)" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="11" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="14" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called after [MEvent.Arguments]/[MEvent.Cancelled] for setting local/global variables to null (clean up)" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="14" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: nothing" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="14" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called when selecting the next input when the input type is a custom menu" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 1 = the id of the menu it was run from" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 2 = the value the player selected (or null if cancelled)" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 3 = the current state of the menu array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: " />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a new custom menu array to replace the existing menu data    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. an input array to open another input                                       OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="17" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       c. null to return to previous menu with no changes" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="17" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called when the player selects an item with a callback return value for the menu item" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains the value id set in the command" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a new input array (opens a new menu)                        OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. an update array (updates the menu)                            OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       c. null (to do nothing)                                                     OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="20" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       d. any other value (closes the menu, returns this value) " />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="20" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called from the [Callback.Selection] of a custom menu input array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       every time the menu selection is changed" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 1 = the id of the selected item" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 2 = the value of the item the player selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 3 = the current menu array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a menu array (updates the current menu)    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="23" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. null (to do nothing)" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="23" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called from the [Callback.TradeBar] of a custom menu input array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       every time the menu is drawn (to change the trade bar w/o creating a new menu)" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 1 = the current trade bar array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a new tradebar array (updates the current tradebar)    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="26" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. null (to do nothing)" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="26" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called from the [Callback.TradeBarCh] of a custom menu input array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       every time the player changes the tradebar" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains: TODO need to update this" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a menu array (updates the current menu)    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="29" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. null (to do nothing)" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="29" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called from the [Callback.Switch] of a custom menu input array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       every time a value selection value is changed" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 1 = the id of the selected item" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 2 = the complete value selection array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 3 = the complete menu array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       a. a menu array (replaces the current menu)    OR" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="32" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       b. null (to do nothing)" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="32" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="35" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called from the [Callback.TabChanged] of a custom menu input array" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="35" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Value Argument contains:" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="35" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 0 = the id of the input that's just been selected" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="35" />
-					<sval type="int" val="1" />
-					<sval type="string" val="       element 1 = the current tab" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="35" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Returns: TODO need to update this" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="35" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="38" />
-					<sval type="int" val="1" />
-					<sval type="string" val="Called every time a dynamic custom menu (a type of input array) is redrawn" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="38" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="39" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="9" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="22" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="45" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="39" />
+					<sval type="int" val="45" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="40" />
+					<sval type="int" val="46" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="46" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="47" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="50" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="51" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="53" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="56" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="64" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="73" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="81" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="89" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="97" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="106" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="113" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="117" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="123" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="130" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>

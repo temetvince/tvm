@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <language id="44">
   <page id="80001" title="Internationalization Strings" descr="For i18n, translate the ids in this page!" voice="no">
-    <!-- Color Codes for Reference -->
-      <!-- \033X None -->
-      <!-- \033R Red -->
-      <!-- \033G Green -->
-      <!-- \033B Blue -->
-      <!-- \033C Cyan -->
-      <!-- \033M Magenta -->
-      <!-- \033Y Yellow -->
-      <!-- \033W White -->
-      <!-- \033O Orange -->
-      <!-- \033A Silver -->
-      
     <!-- tv.i18n.command.destruct.title -->
     <t id="0">\033GThis ship will be \033Rdestroyed\033G, are you \033Csure\033G?</t>
     <!-- tv.i18n.command.destruct.player -->
@@ -21,8 +9,44 @@
     <t id="2">\033YMapping\033G \033C%s</t>
     <!-- tv.i18n.command.mapping.error -->
     <t id="3">\033GAll gates already known</t>
-    <!-- tv.i18n.hotkey.menu.tvm.name-->
-    <t id="4">\033GTVM Menu</t>
+    <!-- tv.i18n.tvm -->
+    <t id="4">TVM</t>
+    <!-- tv.i18n.tvm.long -->
+    <t id="5">temetvince\'s mod</t>
+    <!-- tv.i18n.improvedpiloting -->
+    <t id="6">Improved Piloting</t>
+    <!-- tv.i18n.overachiever -->
+    <t id="7">Overachiever</t>
+    <!-- tv.i18n.standardizedfleetoperations -->
+    <t id="8">Standardized Fleet Operations</t>
+    <!-- tv.i18n.collisionwarningsystem -->
+    <t id="9">Collision Warning System</t>
+    <!-- tv.i18n.tradeembargo -->
+    <t id="10">Trade Embargo</t>
+    <!-- tv.i18n.rememberhomebase -->
+    <t id="11">Remember Homebase</t>
+    <!-- tv.i18n.enabled -->
+    <t id="12">\033GEnabled</t>
+    <!-- tv.i18n.disabled -->
+    <t id="13">\033RDisabled</t>
+    <!-- tv.i18n.contolcenter -->
+    <t id="14">Control Center</t>
+    <!-- tv.i18n.features -->
+    <t id="15">Features</t>
+    <!-- tv.i18n.improvedpiloting.description -->
+    <t id="16">Ships rotate themselves so they are "upright" when flying around</t>
+    <!-- tv.i18n.overachiever.description -->
+    <t id="17">\033WImproved Piloting\033X applies to the player\'s ship</t>
+    <!-- tv.i18n.standardizedfleetoperations.description -->
+    <t id="18">Escorts attempt to match their leader\'s speed</t>
+    <!-- tv.i18n.collisionwarningsystem.description -->
+    <t id="19">Severely reduced collisions during battles (Litcube\'s Bounce)</t>
+    <!-- tv.i18n.tradeembargo.description -->
+    <t id="20">Removes NPC ships docked at player stations when not set to trade externally</t>
+    <!-- tv.i18n.rememberhomebase.description -->
+    <t id="21">Homebase is remembered when transferring into a different ship</t>
+    <!-- tv.i18n.hotkey.menu.tvm.name' -->
+    <t id="22">TVM Menu</t>      
   </page>
 
   <page id="2010" title="Script Cmd Names" descr="For i18n, translate the ids in this page!">
@@ -43,6 +67,27 @@
   <page id="2008" title="Script Cmd Names" descr="DO NOT CHANGE THESE!">
     <t id="263">COMMAND_MAP_GATES</t>
     <t id="563">COMMAND_SELF_DESTRUCT</t>
+  </page>
+
+  <page id="80002" title="Colors" descr="DO NOT CHANGE THESE!">
+    <!-- \033R Red -->
+    <t id="0">\033R%s\033X</t>
+    <!-- \033G Green -->
+    <t id="1">\033G%s\033X</t>
+    <!-- \033B Blue -->
+    <t id="2">\033B%s\033X</t>
+    <!-- \033C Cyan -->
+    <t id="3">\033C%s\033X</t>
+    <!-- \033M Magenta -->
+    <t id="4">\033M%s\033X</t>
+    <!-- \033Y Yellow -->
+    <t id="5">\033Y%s\033X</t>
+    <!-- \033W White -->
+    <t id="6">\033W%s\033X</t>
+    <!-- \033O Orange -->
+    <t id="7">\033O%s\033X</t>
+    <!-- \033A Silver -->
+    <t id="8">\033A%s\033X</t>
   </page>
 
   <page id="80000" title="Bounce Bounding Box" descr="DO NOT CHANGE THESE!">

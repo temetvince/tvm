@@ -13,7 +13,7 @@
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>[THIS]</var>
+			<var>[PLAYERSHIP]</var>
 			<text>-&gt;</text>
 			<text> </text>
 			<text>open</text>
@@ -54,7 +54,7 @@
 				<sval type="array" size="7">
 					<sval type="int" val="1700" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
+					<sval type="int" val="3" />
 					<sval type="int" val="0" />
 					<sval type="string" val="tv.menu.events" />
 					<sval type="int" val="0" />

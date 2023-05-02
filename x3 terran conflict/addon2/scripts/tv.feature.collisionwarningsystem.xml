@@ -5,7 +5,7 @@
 	<name>tv.feature.collisionwarningsystem</name>
 	<version>13</version>
 	<engineversion>50</engineversion>
-	<description>Lib Cmd: TASK 323: Bounce's collision detection run on player ships </description>
+	<description>Lib Cmd: Bounce's collision detection run on player ships </description>
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
@@ -1922,7 +1922,7 @@
 		<sval type="array" size="10">
 			<sval type="string" val="tv.feature.collisionwarningsystem" />
 			<sval type="int" val="50" />
-			<sval type="string" val="Lib Cmd: TASK 323: Bounce's collision detection run on player ships " />
+			<sval type="string" val="Lib Cmd: Bounce's collision detection run on player ships " />
 			<sval type="int" val="13" />
 			<sval type="int" val="0" />
 			<sval type="array" size="44">

@@ -6,31 +6,9 @@
 	<version>1</version>
 	<engineversion>50</engineversion>
 	<description></description>
-	<arguments>
-		<argument index="1" name="lasers" type="Var/Boolean" desc="Should laser energy be infinite?" />
-	</arguments>
+	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
-			<var>[THIS]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>set</text>
-			<text> </text>
-			<text>local</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.godmode'</text>
-			<text> </text>
-			<text>value</text>
-			<text>=</text>
-			<var>[TRUE]</var>
-		</line>
-		<line linenr="002" indent="" />
-		<line linenr="003" indent="">
 			<var>$wait</var>
 			<text> </text>
 			<text>=</text>
@@ -46,8 +24,8 @@
 			<text>=</text>
 			<text>'tv.wait'</text>
 		</line>
-		<line linenr="004" indent="" />
-		<line linenr="005" indent="">
+		<line linenr="002" indent="" />
+		<line linenr="003" indent="">
 			<text>while</text>
 			<text> </text>
 			<var>[THIS]</var>
@@ -64,10 +42,42 @@
 			<text>=</text>
 			<text>'tv.feature.godmode'</text>
 		</line>
+		<line linenr="004" indent="&#160;">
+			<var>$mode</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>local</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.godmode'</text>
+		</line>
+		<line linenr="005" indent="&#160;" />
 		<line linenr="006" indent="&#160;">
 			<text>if</text>
 			<text> </text>
-			<var>$lasers</var>
+			<var>$mode</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>1</var>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<var>$mode</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>3</var>
 		</line>
 		<line linenr="007" indent="&#160;&#160;">
 			<var>$max.laser</var>
@@ -104,6 +114,23 @@
 		</line>
 		<line linenr="010" indent="&#160;" />
 		<line linenr="011" indent="&#160;">
+			<text>if</text>
+			<text> </text>
+			<var>$mode</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>2</var>
+			<text> </text>
+			<text>or</text>
+			<text> </text>
+			<var>$mode</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>3</var>
+		</line>
+		<line linenr="012" indent="&#160;&#160;">
 			<var>$max.shields</var>
 			<text> </text>
 			<text>=</text>
@@ -119,7 +146,7 @@
 			<text> </text>
 			<text>strength</text>
 		</line>
-		<line linenr="012" indent="&#160;">
+		<line linenr="013" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -135,8 +162,7 @@
 			<text> </text>
 			<var>$max.shields</var>
 		</line>
-		<line linenr="013" indent="&#160;" />
-		<line linenr="014" indent="&#160;">
+		<line linenr="014" indent="&#160;&#160;">
 			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
@@ -147,8 +173,11 @@
 			<text> </text>
 			<var>[TRUE]</var>
 		</line>
-		<line linenr="015" indent="&#160;" />
-		<line linenr="016" indent="&#160;" interruptable="@">
+		<line linenr="015" indent="&#160;">
+			<text>end</text>
+		</line>
+		<line linenr="016" indent="&#160;" />
+		<line linenr="017" indent="&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -157,16 +186,16 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="017" indent="">
+		<line linenr="018" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="018" indent="" />
-		<line linenr="019" indent="">
+		<line linenr="019" indent="" />
+		<line linenr="020" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="020" indent="" />
+		<line linenr="021" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -176,26 +205,17 @@
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
 			<sval type="array" size="4">
-				<sval type="string" val="lasers" />
 				<sval type="string" val="wait" />
+				<sval type="string" val="mode" />
 				<sval type="string" val="max.laser" />
 				<sval type="string" val="max.shields" />
 			</sval>
-			<sval type="array" size="12">
-				<sval type="array" size="7">
-					<sval type="int" val="155" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.godmode" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
-				</sval>
+			<sval type="array" size="13">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.wait" />
-					<sval type="int" val="1" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="156" />
@@ -203,16 +223,42 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.feature.godmode" />
-					<sval type="int" val="-1610609911" />
+					<sval type="int" val="-1610609655" />
 				</sval>
-				<sval type="array" size="7">
+				<sval type="array" size="6">
+					<sval type="int" val="156" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.godmode" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="25">
 					<sval type="int" val="104" />
 					<sval type="int" val="-1610611197" />
-					<sval type="int" val="1" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
 					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="7" />
 					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-5" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="717" />
@@ -226,6 +272,33 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="25">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610610173" />
+					<sval type="int" val="7" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="2" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="3" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="15" />
+					<sval type="int" val="10" />
+					<sval type="int" val="7" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+					<sval type="int" val="10" />
+					<sval type="int" val="-4" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-5" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="715" />
@@ -251,11 +324,11 @@
 					<sval type="int" val="105" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="2" />
+					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -263,19 +336,14 @@
 					<sval type="int" val="0" />
 				</sval>
 			</sval>
-			<sval type="array" size="1">
-				<sval type="array" size="2">
-					<sval type="int" val="63" />
-					<sval type="string" val="Should laser energy be infinite?" />
-				</sval>
-			</sval>
+			<sval type="int" val="0" />
 			<sval type="array" size="9">
 				<sval type="array" size="2">
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="2" />
+					<sval type="int" val="3" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -287,23 +355,23 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="8" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="9" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="11" />
+					<sval type="int" val="10" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="11" />
+					<sval type="int" val="10" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="12" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>

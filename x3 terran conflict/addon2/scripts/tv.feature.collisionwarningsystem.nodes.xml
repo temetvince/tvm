@@ -5,7 +5,7 @@
 	<name>tv.feature.collisionwarningsystem.nodes</name>
 	<version>51</version>
 	<engineversion>44</engineversion>
-	<description>Lib Cmd: TASK 324: Bounce's cylinder generator, run on enemy ships.</description>
+	<description>Lib Cmd: Bounce's cylinder generator, run on enemy ships.</description>
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
@@ -1599,7 +1599,7 @@
 		<sval type="array" size="10">
 			<sval type="string" val="tv.feature.collisionwarningsystem.nodes" />
 			<sval type="int" val="44" />
-			<sval type="string" val="Lib Cmd: TASK 324: Bounce's cylinder generator, run on enemy ships." />
+			<sval type="string" val="Lib Cmd: Bounce's cylinder generator, run on enemy ships." />
 			<sval type="int" val="51" />
 			<sval type="int" val="0" />
 			<sval type="array" size="49">
