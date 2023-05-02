@@ -46,7 +46,7 @@
     <!-- tv.i18n.rememberhomebase.description -->
     <t id="21">Homebase is remembered when transferring into a different ship</t>
     <!-- tv.i18n.hotkey.menu.tvm.name' -->
-    <t id="22">TVM Menu</t>      
+    <t id="22">TVM Control Center</t>      
   </page>
 
   <page id="2010" title="Script Cmd Names" descr="For i18n, translate the ids in this page!">
