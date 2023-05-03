@@ -38,7 +38,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.wait.responsiv'</text>
+			<text>'tv.wait.responsive'</text>
 		</line>
 		<line linenr="003" indent="" />
 		<line linenr="004" indent="">
@@ -301,9 +301,9 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.task.radarmineralupgrade</call>
-			<text>:</text>
+			<call>tv.task.asteroidradar</call>
 			<text> </text>
+			<text>:</text>
 		</line>
 		<line linenr="042" indent="">
 			<text>endsub</text>
@@ -440,7 +440,7 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.wait.responsiv" />
+					<sval type="string" val="tv.wait.responsive" />
 					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="4">
@@ -612,7 +612,7 @@
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
-					<sval type="string" val="tv.task.radarmineralupgrade" />
+					<sval type="string" val="tv.task.asteroidradar" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="6" />

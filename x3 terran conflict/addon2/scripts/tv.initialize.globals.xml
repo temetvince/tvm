@@ -214,7 +214,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.feature.radarmineralupgrade'</text>
+			<text>'tv.feature.asteroidradar'</text>
 			<text> </text>
 			<text>value</text>
 			<text>=</text>
@@ -897,7 +897,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.task.radarmineralupgrade'</text>
+			<text>'tv.task.asteroidradar'</text>
 			<text> </text>
 			<text>value</text>
 			<text>=</text>
@@ -1892,7 +1892,67 @@
 			<text>=</text>
 			<text>'tv.i18n.hotkey.menu.tvm.name'</text>
 		</line>
-		<line linenr="123" indent="">
+		<line linenr="123" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.set.global.loadtext</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>page</text>
+			<text>=</text>
+			<var>$page</var>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>23</var>
+			<text> </text>
+			<text>datatype</text>
+			<text>=</text>
+			<var>[DATATYPE_STRING]</var>
+			<text> </text>
+			<text>global.name</text>
+			<text>=</text>
+			<text>'tv.i18n.asteroidradar'</text>
+		</line>
+		<line linenr="124" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.set.global.loadtext</call>
+			<text> </text>
+			<text>:</text>
+			<text> </text>
+			<text>page</text>
+			<text>=</text>
+			<var>$page</var>
+			<text> </text>
+			<text>id</text>
+			<text>=</text>
+			<var>24</var>
+			<text> </text>
+			<text>datatype</text>
+			<text>=</text>
+			<var>[DATATYPE_STRING]</var>
+			<text> </text>
+			<text>global.name</text>
+			<text>=</text>
+			<text>'tv.i18n.asteroidradar.description'</text>
+		</line>
+		<line linenr="125" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -1914,7 +1974,7 @@
 				<sval type="string" val="Index" />
 				<sval type="string" val="Face" />
 			</sval>
-			<sval type="array" size="105">
+			<sval type="array" size="107">
 				<sval type="array" size="3">
 					<sval type="int" val="151" />
 					<sval type="int" val="4" />
@@ -2033,7 +2093,7 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.radarmineralupgrade" />
+					<sval type="string" val="tv.feature.asteroidradar" />
 					<sval type="int" val="4" />
 					<sval type="int" val="1" />
 				</sval>
@@ -2397,7 +2457,7 @@
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.task.radarmineralupgrade" />
+					<sval type="string" val="tv.task.asteroidradar" />
 					<sval type="int" val="4" />
 					<sval type="int" val="12008" />
 				</sval>
@@ -2971,6 +3031,38 @@
 					<sval type="int" val="5" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.i18n.hotkey.menu.tvm.name" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.set.global.loadtext" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="23" />
+					<sval type="int" val="20" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.asteroidradar" />
+				</sval>
+				<sval type="array" size="14">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.set.global.loadtext" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+					<sval type="int" val="4" />
+					<sval type="int" val="24" />
+					<sval type="int" val="20" />
+					<sval type="int" val="5" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.asteroidradar.description" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />

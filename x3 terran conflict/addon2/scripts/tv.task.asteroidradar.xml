@@ -2,7 +2,7 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.task.radarmineralupgrade</name>
+	<name>tv.task.asteroidradar</name>
 	<version>1</version>
 	<engineversion>50</engineversion>
 	<description></description>
@@ -22,7 +22,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.task.radarmineralupgrade'</text>
+			<text>'tv.task.asteroidradar'</text>
 		</line>
 		<line linenr="002" indent="">
 			<var>$priority</var>
@@ -53,7 +53,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.feature.radarmineralupgrade</call>
+			<call>tv.feature.asteroidradar</call>
 			<text> </text>
 			<text>on</text>
 			<text> </text>
@@ -79,7 +79,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.feature.radarmineralupgrade</call>
+			<call>tv.feature.asteroidradar</call>
 			<text> </text>
 			<text>and</text>
 			<text> </text>
@@ -118,7 +118,7 @@
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.task.radarmineralupgrade" />
+			<sval type="string" val="tv.task.asteroidradar" />
 			<sval type="int" val="50" />
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
@@ -131,7 +131,7 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.task.radarmineralupgrade" />
+					<sval type="string" val="tv.task.asteroidradar" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="4">
@@ -145,7 +145,7 @@
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-536869881" />
-					<sval type="string" val="tv.feature.radarmineralupgrade" />
+					<sval type="string" val="tv.feature.asteroidradar" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 				</sval>
@@ -153,7 +153,7 @@
 					<sval type="int" val="1017" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="string" val="tv.feature.radarmineralupgrade" />
+					<sval type="string" val="tv.feature.asteroidradar" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
