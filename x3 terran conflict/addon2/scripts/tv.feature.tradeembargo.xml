@@ -47,7 +47,7 @@
 			<text>'tv.wait'</text>
 		</line>
 		<line linenr="005" indent="">
-			<var>$tv.wait.responsive</var>
+			<var>$tv.wait.sleep</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
@@ -60,7 +60,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.wait.responsive'</text>
+			<text>'tv.wait.sleep'</text>
 		</line>
 		<line linenr="006" indent="" />
 		<line linenr="007" indent="">
@@ -82,7 +82,7 @@
 			<text> </text>
 			<text>wait</text>
 			<text> </text>
-			<var>$tv.wait.responsive</var>
+			<var>$tv.wait.sleep</var>
 			<text> </text>
 			<text>ms</text>
 		</line>
@@ -219,7 +219,7 @@
 			<text> </text>
 			<text>explosion</text>
 			<text>=</text>
-			<var>[TRUE]</var>
+			<var>1</var>
 		</line>
 		<line linenr="024" indent="&#160;&#160;" />
 		<line linenr="025" indent="&#160;&#160;" interruptable="@">
@@ -254,7 +254,7 @@
 			<sval type="int" val="0" />
 			<sval type="array" size="6">
 				<sval type="string" val="tv.wait" />
-				<sval type="string" val="tv.wait.responsive" />
+				<sval type="string" val="tv.wait.sleep" />
 				<sval type="string" val="ships" />
 				<sval type="string" val="i" />
 				<sval type="string" val="ship" />
@@ -283,7 +283,7 @@
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.wait.responsive" />
+					<sval type="string" val="tv.wait.sleep" />
 					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="4">
@@ -368,8 +368,8 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
+					<sval type="int" val="4" />
+					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />

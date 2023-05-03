@@ -5,7 +5,7 @@
 	<name>tv.feature.collisionwarningsystem.test</name>
 	<version>11</version>
 	<engineversion>44</engineversion>
-	<description>Description</description>
+	<description>Test</description>
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
@@ -117,7 +117,7 @@
 		<sval type="array" size="10">
 			<sval type="string" val="tv.feature.collisionwarningsystem.test" />
 			<sval type="int" val="44" />
-			<sval type="string" val="Description" />
+			<sval type="string" val="Test" />
 			<sval type="int" val="11" />
 			<sval type="int" val="0" />
 			<sval type="int" val="0" />

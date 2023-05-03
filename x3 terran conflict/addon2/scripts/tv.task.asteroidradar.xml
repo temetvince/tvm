@@ -2,9 +2,9 @@
 <?xml-stylesheet href="x2script.xsl" type="text/xsl"?>
 <!-- Generated using X-Studio -->
 <script>
-	<name>tv.task</name>
+	<name>tv.task.asteroidradar</name>
 	<version>1</version>
-	<engineversion>60</engineversion>
+	<engineversion>50</engineversion>
 	<description></description>
 	<arguments />
 	<sourcetext>
@@ -22,7 +22,7 @@
 			<text> </text>
 			<text>name</text>
 			<text>=</text>
-			<text>'tv.task.tasks'</text>
+			<text>'tv.task.asteroidradar'</text>
 		</line>
 		<line linenr="002" indent="">
 			<var>$priority</var>
@@ -46,21 +46,27 @@
 			<text> </text>
 			<text>if</text>
 			<text> </text>
-			<var>[PLAYERSHIP]</var>
+			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
 			<text>is</text>
 			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.feature.asteroidradar</call>
+			<text> </text>
+			<text>on</text>
+			<text> </text>
+			<text>stack</text>
+			<text> </text>
+			<text>of</text>
+			<text> </text>
 			<text>task</text>
-			<text> </text>
+			<text>=</text>
 			<var>$task</var>
-			<text> </text>
-			<text>in</text>
-			<text> </text>
-			<text>use</text>
 		</line>
 		<line linenr="005" indent="&#160;">
-			<var>[PLAYERSHIP]</var>
+			<var>[THIS]</var>
 			<text>-&gt;</text>
 			<text> </text>
 			<text>begin</text>
@@ -73,7 +79,7 @@
 			<text> </text>
 			<text>script</text>
 			<text> </text>
-			<call>tv.task.tasks</call>
+			<call>tv.feature.asteroidradar</call>
 			<text> </text>
 			<text>and</text>
 			<text> </text>
@@ -84,7 +90,7 @@
 			<text> </text>
 			<text>arg1</text>
 			<text>=</text>
-			<var>$null</var>
+			<var>null</var>
 			<text> </text>
 			<text>arg2</text>
 			<text>=</text>
@@ -112,21 +118,20 @@
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
-			<sval type="string" val="tv.task" />
-			<sval type="int" val="60" />
+			<sval type="string" val="tv.task.asteroidradar" />
+			<sval type="int" val="50" />
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="3">
+			<sval type="array" size="2">
 				<sval type="string" val="task" />
 				<sval type="string" val="priority" />
-				<sval type="string" val="null" />
 			</sval>
 			<sval type="array" size="5">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
-					<sval type="string" val="tv.task.tasks" />
+					<sval type="string" val="tv.task.asteroidradar" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="4">
@@ -135,25 +140,26 @@
 					<sval type="string" val="tv.priority" />
 					<sval type="int" val="1" />
 				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="1073" />
+				<sval type="array" size="7">
+					<sval type="int" val="1072" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="3" />
+					<sval type="int" val="1" />
 					<sval type="int" val="-536869881" />
+					<sval type="string" val="tv.feature.asteroidradar" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="1017" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="3" />
-					<sval type="string" val="tv.task.tasks" />
+					<sval type="int" val="1" />
+					<sval type="string" val="tv.feature.asteroidradar" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="0" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="0" />
+					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />

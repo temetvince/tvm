@@ -46,7 +46,11 @@
     <!-- tv.i18n.rememberhomebase.description -->
     <t id="21">Homebase is remembered when transferring into a different ship</t>
     <!-- tv.i18n.hotkey.menu.tvm.name' -->
-    <t id="22">TVM Control Center</t>      
+    <t id="22">TVM Control Center</t>     
+    <!-- tv.i18n.asteroidradar' -->
+    <t id="23">Asteroid Radar</t> 
+    <!-- tv.i18n.asteroidradar.description' -->
+    <t id="24">Reduced collisions with asteroids</t>  
   </page>
 
   <page id="2010" title="Script Cmd Names" descr="For i18n, translate the ids in this page!">

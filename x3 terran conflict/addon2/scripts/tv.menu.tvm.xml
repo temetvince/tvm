@@ -194,7 +194,6 @@
 			<text>==</text>
 			<text> </text>
 			<var>$t.improvedpiloting</var>
-			<text> </text>
 		</line>
 		<line linenr="023" indent="&#160;&#160;&#160;">
 			<text>set</text>
@@ -348,117 +347,47 @@
 			<var>$value</var>
 		</line>
 		<line linenr="034" indent="&#160;&#160;">
+			<text>else</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$key</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$t.asteroidradar</var>
+		</line>
+		<line linenr="035" indent="&#160;&#160;&#160;">
+			<text>set</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.feature.asteroidradar'</text>
+			<text> </text>
+			<text>value</text>
+			<text>=</text>
+			<var>$value</var>
+		</line>
+		<line linenr="036" indent="&#160;&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="035" indent="&#160;">
+		<line linenr="037" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="036" indent="">
+		<line linenr="038" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="037" indent="" />
-		<line linenr="038" indent="">
+		<line linenr="039" indent="" />
+		<line linenr="040" indent="">
 			<var>LoadGlobals</var>
 			<text>:</text>
 		</line>
-		<line linenr="039" indent="&#160;">
-			<var>$feature.improvedpiloting</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.improvedpiloting'</text>
-		</line>
-		<line linenr="040" indent="&#160;">
-			<var>$feature.overachiever</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.overachiever'</text>
-		</line>
 		<line linenr="041" indent="&#160;">
-			<var>$feature.standardizedfleetoperations</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.standardizedfleetoperations'</text>
-		</line>
-		<line linenr="042" indent="&#160;">
-			<var>$feature.collisionwarningsystem</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.collisionwarningsystem'</text>
-		</line>
-		<line linenr="043" indent="&#160;">
-			<var>$feature.tradeembargo</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.tradeembargo'</text>
-		</line>
-		<line linenr="044" indent="&#160;">
-			<var>$feature.rememberhomebase</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<text>get</text>
-			<text> </text>
-			<text>global</text>
-			<text> </text>
-			<text>variable</text>
-			<text>:</text>
-			<text> </text>
-			<text>name</text>
-			<text>=</text>
-			<text>'tv.feature.rememberhomebase'</text>
-		</line>
-		<line linenr="045" indent="&#160;" />
-		<line linenr="046" indent="&#160;">
 			<var>$t.improvedpiloting</var>
 			<text> </text>
 			<text>=</text>
@@ -474,7 +403,7 @@
 			<text>=</text>
 			<text>'tv.i18n.improvedpiloting'</text>
 		</line>
-		<line linenr="047" indent="&#160;">
+		<line linenr="042" indent="&#160;">
 			<var>$t.overachiever</var>
 			<text> </text>
 			<text>=</text>
@@ -490,7 +419,7 @@
 			<text>=</text>
 			<text>'tv.i18n.overachiever'</text>
 		</line>
-		<line linenr="048" indent="&#160;">
+		<line linenr="043" indent="&#160;">
 			<var>$t.standardizedfleetoperations</var>
 			<text> </text>
 			<text>=</text>
@@ -506,7 +435,7 @@
 			<text>=</text>
 			<text>'tv.i18n.standardizedfleetoperations'</text>
 		</line>
-		<line linenr="049" indent="&#160;">
+		<line linenr="044" indent="&#160;">
 			<var>$t.collisionwarningsystem</var>
 			<text> </text>
 			<text>=</text>
@@ -522,7 +451,7 @@
 			<text>=</text>
 			<text>'tv.i18n.collisionwarningsystem'</text>
 		</line>
-		<line linenr="050" indent="&#160;">
+		<line linenr="045" indent="&#160;">
 			<var>$t.tradeembargo</var>
 			<text> </text>
 			<text>=</text>
@@ -538,7 +467,7 @@
 			<text>=</text>
 			<text>'tv.i18n.tradeembargo'</text>
 		</line>
-		<line linenr="051" indent="&#160;">
+		<line linenr="046" indent="&#160;">
 			<var>$t.rememberhomebase</var>
 			<text> </text>
 			<text>=</text>
@@ -554,7 +483,23 @@
 			<text>=</text>
 			<text>'tv.i18n.rememberhomebase'</text>
 		</line>
-		<line linenr="052" indent="">
+		<line linenr="047" indent="&#160;">
+			<var>$t.asteroidradar</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
+			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.i18n.asteroidradar'</text>
+		</line>
+		<line linenr="048" indent="">
 			<text>endsub</text>
 		</line>
 	</sourcetext>
@@ -565,7 +510,7 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="18">
+			<sval type="array" size="13">
 				<sval type="string" val="name" />
 				<sval type="string" val="local" />
 				<sval type="string" val="keys" />
@@ -578,17 +523,12 @@
 				<sval type="string" val="t.collisionwarningsystem" />
 				<sval type="string" val="t.tradeembargo" />
 				<sval type="string" val="t.rememberhomebase" />
-				<sval type="string" val="feature.improvedpiloting" />
-				<sval type="string" val="feature.overachiever" />
-				<sval type="string" val="feature.standardizedfleetoperations" />
-				<sval type="string" val="feature.collisionwarningsystem" />
-				<sval type="string" val="feature.tradeembargo" />
-				<sval type="string" val="feature.rememberhomebase" />
+				<sval type="string" val="t.asteroidradar" />
 			</sval>
-			<sval type="array" size="48">
+			<sval type="array" size="46">
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="34" />
+					<sval type="int" val="37" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -657,7 +597,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604279" />
+					<sval type="int" val="-1610603511" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="3" />
@@ -708,7 +648,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -734,7 +674,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -760,7 +700,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -786,7 +726,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
@@ -812,11 +752,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604539" />
+					<sval type="int" val="-1610604283" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
@@ -838,6 +778,32 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
+					<sval type="int" val="35" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610603771" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="12" />
+					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="5">
+					<sval type="int" val="157" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.feature.asteroidradar" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
 					<sval type="int" val="11" />
 				</sval>
 				<sval type="array" size="1">
@@ -846,42 +812,6 @@
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
 					<sval type="string" val="LoadGlobals" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.improvedpiloting" />
-					<sval type="int" val="12" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.overachiever" />
-					<sval type="int" val="13" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.standardizedfleetoperations" />
-					<sval type="int" val="14" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.collisionwarningsystem" />
-					<sval type="int" val="15" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.tradeembargo" />
-					<sval type="int" val="16" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="158" />
-					<sval type="int" val="5" />
-					<sval type="string" val="tv.feature.rememberhomebase" />
-					<sval type="int" val="17" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
@@ -919,12 +849,18 @@
 					<sval type="string" val="tv.i18n.rememberhomebase" />
 					<sval type="int" val="11" />
 				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.i18n.asteroidradar" />
+					<sval type="int" val="12" />
+				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="10">
+			<sval type="array" size="9">
 				<sval type="array" size="2">
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
@@ -950,19 +886,15 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="32" />
+					<sval type="int" val="35" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="33" />
+					<sval type="int" val="36" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="34" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="41" />
+					<sval type="int" val="37" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
