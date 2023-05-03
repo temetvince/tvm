@@ -16,7 +16,7 @@
     <!-- tv.i18n.improvedpiloting -->
     <t id="6">Verbesserte Flugsteuerung</t>
     <!-- tv.i18n.overachiever -->
-    <t id="7">Overachiever</t>
+    <t id="7">Überflieger</t>
     <!-- tv.i18n.standardizedfleetoperations -->
     <t id="8">Standartisierte Flottenoperationen</t>
     <!-- tv.i18n.collisionwarningsystem -->
@@ -48,9 +48,9 @@
     <!-- tv.i18n.hotkey.menu.tvm.name' -->
     <t id="22">TVM Kontrollzentrum</t>      
     <!-- tv.i18n.asteroidradar' -->
-    <t id="23">Asteroid Radar</t> 
+    <t id="23">Asteroidenradar</t> 
     <!-- tv.i18n.asteroidradar.description' -->
-    <t id="24">Reduced collisions with asteroids</t> 
+    <t id="24">Vermeidet Kollisionen mit Asteroiden</t> 
   </page>
 
   <page id="2010" title="Script Cmd Names" descr="For i18n, translate the ids in this page!">
