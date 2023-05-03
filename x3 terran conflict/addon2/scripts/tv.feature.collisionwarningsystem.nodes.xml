@@ -483,37 +483,18 @@
 		</line>
 		<line linenr="045" indent="" />
 		<line linenr="046" indent="">
-			<comment>*$ValidCheckDistance = $DangerRadius + ($DangerRadius / 3)</comment>
+			<comment>* $ValidCheckDistance = $DangerRadius + ($DangerRadius / 3)</comment>
 		</line>
 		<line linenr="047" indent="">
-			<text>if</text>
-			<text> </text>
-			<var>[THIS]</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>is</text>
-			<text> </text>
-			<text>of</text>
-			<text> </text>
-			<text>class</text>
-			<text> </text>
-			<var>[Huge Ship]</var>
+			<comment>*if [THIS]-&gt; is of class [Huge Ship]</comment>
 		</line>
-		<line linenr="048" indent="&#160;">
-			<var>$ValidCheckDistance</var>
-			<text> </text>
-			<text>=</text>
-			<text> </text>
-			<var>$DangerRadius</var>
-			<text> </text>
-			<text>*</text>
-			<text> </text>
-			<var>5</var>
+		<line linenr="048" indent="">
+			<comment>*$ValidCheckDistance = $DangerRadius * 5</comment>
 		</line>
 		<line linenr="049" indent="">
-			<text>else</text>
+			<comment>*else</comment>
 		</line>
-		<line linenr="050" indent="&#160;">
+		<line linenr="050" indent="">
 			<var>$ValidCheckDistance</var>
 			<text> </text>
 			<text>=</text>
@@ -525,7 +506,7 @@
 			<var>10</var>
 		</line>
 		<line linenr="051" indent="">
-			<text>end</text>
+			<comment>*end</comment>
 		</line>
 		<line linenr="052" indent="" />
 		<line linenr="053" indent="">
@@ -1648,7 +1629,7 @@
 				<sval type="string" val="A" />
 				<sval type="string" val="Pos" />
 			</sval>
-			<sval type="array" size="124">
+			<sval type="array" size="121">
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
 					<sval type="int" val="-2147483647" />
@@ -2069,33 +2050,6 @@
 					<sval type="int" val="131074" />
 					<sval type="int" val="17" />
 				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="705" />
-					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1610603005" />
-					<sval type="int" val="12" />
-					<sval type="int" val="2019" />
-				</sval>
-				<sval type="array" size="13">
-					<sval type="int" val="104" />
-					<sval type="int" val="22" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="21" />
-					<sval type="int" val="4" />
-					<sval type="int" val="5" />
-					<sval type="int" val="15" />
-					<sval type="int" val="13" />
-					<sval type="int" val="3" />
-					<sval type="int" val="-1" />
-					<sval type="int" val="13" />
-					<sval type="int" val="-2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="39" />
-				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
 					<sval type="int" val="22" />
@@ -2142,7 +2096,7 @@
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610601720" />
+					<sval type="int" val="-1610602488" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="24" />
@@ -2175,11 +2129,11 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="58" />
+					<sval type="int" val="55" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610598135" />
+					<sval type="int" val="-1610598903" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="10" />
@@ -2190,11 +2144,11 @@
 					<sval type="int" val="158" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="4" />
-					<sval type="int" val="-536858617" />
+					<sval type="int" val="-536859385" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="117" />
+					<sval type="int" val="114" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -2206,11 +2160,11 @@
 					<sval type="int" val="761" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
-					<sval type="int" val="-536857849" />
+					<sval type="int" val="-536858617" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="117" />
+					<sval type="int" val="114" />
 				</sval>
 				<sval type="array" size="18">
 					<sval type="int" val="757" />
@@ -2234,7 +2188,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-536856828" />
+					<sval type="int" val="-536857596" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="25" />
@@ -2249,15 +2203,15 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="45" />
+					<sval type="int" val="42" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="58" />
+					<sval type="int" val="55" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="45" />
+					<sval type="int" val="42" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
@@ -2297,7 +2251,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="91" />
+					<sval type="int" val="88" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -2361,7 +2315,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="91" />
+					<sval type="int" val="88" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
@@ -2491,7 +2445,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610589943" />
+					<sval type="int" val="-1610590711" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="39" />
@@ -2651,7 +2605,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="78" />
+					<sval type="int" val="75" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="155" />
@@ -3075,7 +3029,7 @@
 				</sval>
 			</sval>
 			<sval type="int" val="0" />
-			<sval type="array" size="53">
+			<sval type="array" size="55">
 				<sval type="array" size="2">
 					<sval type="int" val="1" />
 					<sval type="int" val="2" />
@@ -3121,22 +3075,77 @@
 					<sval type="int" val="1" />
 					<sval type="string" val="$ValidCheckDistance = $DangerRadius + ($DangerRadius / 3)" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="38" />
-					<sval type="int" val="5" />
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if [THIS]-&gt; is of class [Huge Ship]" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$ValidCheckDistance = $DangerRadius * 5" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="35" />
+					<sval type="int" val="1" />
+					<sval type="string" val="else" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="36" />
+					<sval type="int" val="1" />
+					<sval type="string" val="end" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="39" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="39" />
+					<sval type="int" val="36" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="40" />
+					<sval type="int" val="37" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$WaitTime = 300 + (175000 / $MaxSpeed)" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="42" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="45" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="if is a new script version available" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$name = get script name" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$task = get task ID" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="$null = null" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="START $null-&gt; call script 'Lib.Gen.RunScriptWhenFinished' : argument1=$name argument2=$task argument3=$task argument4=[THIS] argument5=[THIS] argument6=null argument7=null argument8=null argument9=null argument10=null" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="return null" />
+				</sval>
+				<sval type="array" size="3">
+					<sval type="int" val="45" />
+					<sval type="int" val="1" />
+					<sval type="string" val="end" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="45" />
@@ -3146,161 +3155,118 @@
 					<sval type="int" val="48" />
 					<sval type="int" val="2" />
 				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="if is a new script version available" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="$name = get script name" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="$task = get task ID" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="$null = null" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="START $null-&gt; call script 'Lib.Gen.RunScriptWhenFinished' : argument1=$name argument2=$task argument3=$task argument4=[THIS] argument5=[THIS] argument6=null argument7=null argument8=null argument9=null argument10=null" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="return null" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="48" />
-					<sval type="int" val="1" />
-					<sval type="string" val="end" />
-				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="48" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="51" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="55" />
+					<sval type="int" val="52" />
 					<sval type="int" val="6" />
 				</sval>
 				<sval type="array" size="2">
+					<sval type="int" val="52" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="54" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="54" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
 					<sval type="int" val="55" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="57" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="57" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="58" />
+					<sval type="int" val="63" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="66" />
+					<sval type="int" val="70" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="73" />
+					<sval type="int" val="74" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="77" />
+					<sval type="int" val="80" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="83" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$ship = create ship: type={Neutral Race Navigational Beacon} owner=[Boron] addto=[SECTOR] x=null y=null z=null" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$ship-&gt; ignore collisions: [TRUE]" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$ship-&gt; set race logic control enabled to [FALSE]" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="1" />
 					<sval type="string" val="$ship-&gt; force position: x=$x y=$y z=$z" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="1" />
 					<sval type="string" val="START $ship-&gt; call script 'Cmd.DestructInTime' : argument1=$WaitTime argument2=[TRUE]" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="87" />
+					<sval type="int" val="84" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="89" />
+					<sval type="int" val="86" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="89" />
+					<sval type="int" val="86" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="91" />
+					<sval type="int" val="88" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="3">
-					<sval type="int" val="92" />
+					<sval type="int" val="89" />
 					<sval type="int" val="1" />
 					<sval type="string" val="requires x, y, z" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="92" />
+					<sval type="int" val="89" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="98" />
+					<sval type="int" val="95" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="104" />
+					<sval type="int" val="101" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="110" />
+					<sval type="int" val="107" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="117" />
+					<sval type="int" val="114" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="123" />
+					<sval type="int" val="120" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="124" />
+					<sval type="int" val="121" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
