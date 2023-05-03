@@ -5,7 +5,7 @@
 	<name>tv.feature.collisionwarningsystem.wall.generate</name>
 	<version>2</version>
 	<engineversion>44</engineversion>
-	<description>Description</description>
+	<description>Generate Wall File</description>
 	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
@@ -2892,7 +2892,7 @@
 		<sval type="array" size="10">
 			<sval type="string" val="tv.feature.collisionwarningsystem.wall.generate" />
 			<sval type="int" val="44" />
-			<sval type="string" val="Description" />
+			<sval type="string" val="Generate Wall File" />
 			<sval type="int" val="2" />
 			<sval type="int" val="0" />
 			<sval type="array" size="43">
