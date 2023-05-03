@@ -13,6 +13,8 @@
 * To go back to the original font, remove/rename the *f* folder in your game install's *x3 terran conflict* folder
 
 ### Features
+* TVM Control Center
+    * A new hotkey for turning features of the mod on or off
 * Collision Warning System
     * Severely reduced collisions during battles (Litcube's Bounce)
 * Asteroid Radar
