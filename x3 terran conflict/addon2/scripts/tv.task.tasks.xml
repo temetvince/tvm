@@ -6,9 +6,7 @@
 	<version>1</version>
 	<engineversion>50</engineversion>
 	<description></description>
-	<arguments>
-		<argument index="1" name="sector" type="Var/Sector" desc="The sector to monitor" />
-	</arguments>
+	<arguments />
 	<sourcetext>
 		<line linenr="001" indent="">
 			<var>$tv.wait</var>
@@ -26,45 +24,38 @@
 			<text>=</text>
 			<text>'tv.wait'</text>
 		</line>
-		<line linenr="002" indent="" />
-		<line linenr="003" indent="">
-			<text>skip</text>
-			<text> </text>
-			<text>if</text>
-			<text> </text>
-			<var>$sector</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>is</text>
-			<text> </text>
-			<text>in</text>
-			<text> </text>
-			<text>active</text>
-			<text> </text>
-			<text>sector</text>
-		</line>
-		<line linenr="004" indent="&#160;">
-			<text>return</text>
-			<text> </text>
-			<var>null</var>
-		</line>
-		<line linenr="005" indent="" />
-		<line linenr="006" indent="">
-			<var>$ship</var>
+		<line linenr="002" indent="">
+			<var>$tv.wait.responsive</var>
 			<text> </text>
 			<text>=</text>
 			<text> </text>
-			<var>[THIS]</var>
-		</line>
-		<line linenr="007" indent="">
-			<text>gosub</text>
+			<text>get</text>
 			<text> </text>
-			<var>StartTasksOnShip</var>
+			<text>global</text>
+			<text> </text>
+			<text>variable</text>
 			<text>:</text>
+			<text> </text>
+			<text>name</text>
+			<text>=</text>
+			<text>'tv.wait.responsiv'</text>
 		</line>
-		<line linenr="008" indent="" />
-		<line linenr="009" indent="">
-			<text>if</text>
+		<line linenr="003" indent="" />
+		<line linenr="004" indent="">
+			<var>$sector.start</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[PLAYERSHIP]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>sector</text>
+		</line>
+		<line linenr="005" indent="" />
+		<line linenr="006" indent="">
+			<text>while</text>
 			<text> </text>
 			<var>[THIS]</var>
 			<text> </text>
@@ -72,97 +63,85 @@
 			<text> </text>
 			<var>[PLAYERSHIP]</var>
 		</line>
-		<line linenr="010" indent="&#160;">
+		<line linenr="007" indent="&#160;">
+			<var>$sector</var>
+			<text> </text>
+			<text>=</text>
+			<text> </text>
+			<var>[PLAYERSHIP]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>get</text>
+			<text> </text>
+			<text>sector</text>
+		</line>
+		<line linenr="008" indent="&#160;">
+			<text>skip</text>
+			<text> </text>
+			<text>if</text>
+			<text> </text>
+			<var>$sector.start</var>
+			<text> </text>
+			<text>==</text>
+			<text> </text>
+			<var>$sector</var>
+		</line>
+		<line linenr="009" indent="&#160;&#160;">
+			<text>break</text>
+		</line>
+		<line linenr="010" indent="&#160;" />
+		<line linenr="011" indent="&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>StartTasksOnShips</var>
 			<text>:</text>
 		</line>
-		<line linenr="011" indent="&#160;">
+		<line linenr="012" indent="&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>StartTasksOnStations</var>
 			<text>:</text>
 		</line>
-		<line linenr="012" indent="">
+		<line linenr="013" indent="&#160;" />
+		<line linenr="014" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<text>wait</text>
+			<text> </text>
+			<var>$tv.wait.responsive</var>
+			<text> </text>
+			<text>ms</text>
+		</line>
+		<line linenr="015" indent="">
 			<text>end</text>
 		</line>
-		<line linenr="013" indent="" />
-		<line linenr="014" indent="">
+		<line linenr="016" indent="" />
+		<line linenr="017" indent="" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>[THIS]</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="018" indent="" />
+		<line linenr="019" indent="">
 			<text>return</text>
 			<text> </text>
 			<var>null</var>
 		</line>
-		<line linenr="015" indent="" />
-		<line linenr="016" indent="">
-			<var>StartTasksOnShip</var>
-			<text>:</text>
-		</line>
-		<line linenr="017" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.improvedpiloting</call>
-			<text> </text>
-			<text>:</text>
-		</line>
-		<line linenr="018" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.rememberhomebase</call>
-			<text> </text>
-			<text>:</text>
-		</line>
-		<line linenr="019" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.standardizedfleetoperations</call>
-			<text> </text>
-			<text>:</text>
-		</line>
-		<line linenr="020" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.collisionwarningsystem</call>
-			<text> </text>
-			<text>:</text>
-		</line>
+		<line linenr="020" indent="" />
 		<line linenr="021" indent="">
-			<text>endsub</text>
-		</line>
-		<line linenr="022" indent="" />
-		<line linenr="023" indent="">
 			<var>StartTasksOnShips</var>
 			<text>:</text>
 		</line>
-		<line linenr="024" indent="&#160;">
+		<line linenr="022" indent="&#160;">
 			<var>$ships</var>
 			<text> </text>
 			<text>=</text>
@@ -184,7 +163,7 @@
 			<text>/</text>
 			<text>station</text>
 		</line>
-		<line linenr="025" indent="&#160;">
+		<line linenr="023" indent="&#160;">
 			<var>$index</var>
 			<text> </text>
 			<text>=</text>
@@ -197,21 +176,19 @@
 			<text> </text>
 			<var>$ships</var>
 		</line>
-		<line linenr="026" indent="&#160;">
-			<text> </text>
-		</line>
-		<line linenr="027" indent="&#160;">
+		<line linenr="024" indent="&#160;" />
+		<line linenr="025" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="028" indent="&#160;&#160;">
+		<line linenr="026" indent="&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="029" indent="&#160;&#160;" />
-		<line linenr="030" indent="&#160;&#160;">
+		<line linenr="027" indent="&#160;&#160;" />
+		<line linenr="028" indent="&#160;&#160;">
 			<var>$ship</var>
 			<text> </text>
 			<text>=</text>
@@ -230,15 +207,15 @@
 			<var>$index</var>
 			<text>)</text>
 		</line>
-		<line linenr="031" indent="&#160;&#160;" />
-		<line linenr="032" indent="&#160;&#160;">
+		<line linenr="029" indent="&#160;&#160;" />
+		<line linenr="030" indent="&#160;&#160;">
 			<text>gosub</text>
 			<text> </text>
 			<var>StartTasksOnShip</var>
 			<text>:</text>
 		</line>
-		<line linenr="033" indent="&#160;&#160;" />
-		<line linenr="034" indent="&#160;&#160;" interruptable="@">
+		<line linenr="031" indent="&#160;&#160;" />
+		<line linenr="032" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -247,18 +224,96 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="035" indent="&#160;">
+		<line linenr="033" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="036" indent="">
+		<line linenr="034" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="037" indent="" />
-		<line linenr="038" indent="">
+		<line linenr="035" indent="" />
+		<line linenr="036" indent="">
+			<var>StartTasksOnShip</var>
+			<text>:</text>
+		</line>
+		<line linenr="037" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task.improvedpiloting</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="038" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task.rememberhomebase</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="039" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task.standardizedfleetoperations</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="040" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task.collisionwarningsystem</call>
+			<text> </text>
+			<text>:</text>
+		</line>
+		<line linenr="041" indent="&#160;" interruptable="@">
+			<text>=</text>
+			<text> </text>
+			<var>$ship</var>
+			<text>-&gt;</text>
+			<text> </text>
+			<text>call</text>
+			<text> </text>
+			<text>script</text>
+			<text> </text>
+			<call>tv.task.radarmineralupgrade</call>
+			<text>:</text>
+			<text> </text>
+		</line>
+		<line linenr="042" indent="">
+			<text>endsub</text>
+		</line>
+		<line linenr="043" indent="" />
+		<line linenr="044" indent="">
 			<var>StartTasksOnStations</var>
 			<text>:</text>
 		</line>
-		<line linenr="039" indent="&#160;">
+		<line linenr="045" indent="&#160;">
 			<var>$stations</var>
 			<text> </text>
 			<text>=</text>
@@ -282,7 +337,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="040" indent="&#160;">
+		<line linenr="046" indent="&#160;">
 			<var>$index</var>
 			<text> </text>
 			<text>=</text>
@@ -295,17 +350,17 @@
 			<text> </text>
 			<var>$stations</var>
 		</line>
-		<line linenr="041" indent="&#160;">
+		<line linenr="047" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="042" indent="&#160;&#160;">
+		<line linenr="048" indent="&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="043" indent="&#160;&#160;">
+		<line linenr="049" indent="&#160;&#160;">
 			<var>$station</var>
 			<text> </text>
 			<text>=</text>
@@ -324,8 +379,8 @@
 			<var>$index</var>
 			<text>)</text>
 		</line>
-		<line linenr="044" indent="&#160;&#160;" />
-		<line linenr="045" indent="&#160;&#160;" interruptable="@">
+		<line linenr="050" indent="&#160;&#160;" />
+		<line linenr="051" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>$station</var>
@@ -339,8 +394,8 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="046" indent="&#160;&#160;" />
-		<line linenr="047" indent="&#160;&#160;" interruptable="@">
+		<line linenr="052" indent="&#160;&#160;" />
+		<line linenr="053" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -349,13 +404,13 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="048" indent="&#160;">
+		<line linenr="054" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="049" indent="">
+		<line linenr="055" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="050" indent="" />
+		<line linenr="056" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -364,49 +419,39 @@
 			<sval type="string" val="" />
 			<sval type="int" val="1" />
 			<sval type="int" val="0" />
-			<sval type="array" size="7">
-				<sval type="string" val="sector" />
+			<sval type="array" size="9">
 				<sval type="string" val="tv.wait" />
-				<sval type="string" val="ship" />
+				<sval type="string" val="tv.wait.responsive" />
+				<sval type="string" val="sector.start" />
+				<sval type="string" val="sector" />
 				<sval type="string" val="ships" />
 				<sval type="string" val="index" />
+				<sval type="string" val="ship" />
 				<sval type="string" val="stations" />
 				<sval type="string" val="station" />
 			</sval>
-			<sval type="array" size="35">
+			<sval type="array" size="40">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.wait" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="158" />
+					<sval type="int" val="5" />
+					<sval type="string" val="tv.wait.responsiv" />
 					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="4">
-					<sval type="int" val="761" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
-					<sval type="int" val="-536870137" />
-				</sval>
-				<sval type="array" size="3">
-					<sval type="int" val="103" />
-					<sval type="int" val="0" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="2" />
-					<sval type="int" val="1" />
+					<sval type="int" val="703" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="1" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="1167" />
-					<sval type="int" val="9" />
+					<sval type="int" val="3" />
+					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="13">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610610685" />
+					<sval type="int" val="-1610609911" />
 					<sval type="int" val="3" />
 					<sval type="int" val="131075" />
 					<sval type="int" val="1" />
@@ -419,18 +464,115 @@
 					<sval type="int" val="0" />
 					<sval type="int" val="-2" />
 				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="1167" />
+				<sval type="array" size="4">
+					<sval type="int" val="703" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="3" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="13">
+					<sval type="int" val="104" />
+					<sval type="int" val="-536869113" />
+					<sval type="int" val="3" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="2" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
 					<sval type="int" val="15" />
+					<sval type="int" val="0" />
+					<sval type="int" val="3" />
+					<sval type="int" val="-1" />
+					<sval type="int" val="0" />
+					<sval type="int" val="-2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="11" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="25" />
+					<sval type="int" val="13" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="30" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="3" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.task" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131075" />
+					<sval type="int" val="1" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="3">
 					<sval type="int" val="103" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="101" />
+					<sval type="string" val="StartTasksOnShips" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="1008" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="3" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="131" />
+					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="7">
+					<sval type="int" val="104" />
+					<sval type="int" val="-1610607095" />
+					<sval type="int" val="1" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+					<sval type="int" val="1" />
+					<sval type="int" val="-1" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="143" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="6">
+					<sval type="int" val="129" />
+					<sval type="int" val="6" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="4" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="5" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="1167" />
+					<sval type="int" val="23" />
+				</sval>
+				<sval type="array" size="4">
+					<sval type="int" val="105" />
+					<sval type="int" val="-2147483647" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="0" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="112" />
+					<sval type="int" val="16" />
+				</sval>
+				<sval type="array" size="1">
+					<sval type="int" val="1168" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="101" />
@@ -441,7 +583,7 @@
 					<sval type="string" val="tv.task.improvedpiloting" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="6">
@@ -449,7 +591,7 @@
 					<sval type="string" val="tv.task.rememberhomebase" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="6">
@@ -457,7 +599,7 @@
 					<sval type="string" val="tv.task.standardizedfleetoperations" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="6">
@@ -465,62 +607,16 @@
 					<sval type="string" val="tv.task.collisionwarningsystem" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="2" />
+					<sval type="int" val="6" />
 					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="1">
-					<sval type="int" val="1168" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="101" />
-					<sval type="string" val="StartTasksOnShips" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="1008" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="0" />
-					<sval type="int" val="3" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="131" />
-					<sval type="int" val="4" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
-				</sval>
-				<sval type="array" size="7">
-					<sval type="int" val="104" />
-					<sval type="int" val="-1610606583" />
-					<sval type="int" val="1" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
-					<sval type="int" val="1" />
-					<sval type="int" val="-1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="143" />
-					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="6">
-					<sval type="int" val="129" />
-					<sval type="int" val="2" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="3" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="1167" />
-					<sval type="int" val="9" />
-				</sval>
-				<sval type="array" size="4">
-					<sval type="int" val="105" />
+					<sval type="int" val="102" />
+					<sval type="string" val="tv.task.radarmineralupgrade" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="112" />
-					<sval type="int" val="18" />
+					<sval type="int" val="6" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
@@ -533,68 +629,63 @@
 					<sval type="int" val="1069" />
 					<sval type="int" val="10" />
 					<sval type="int" val="10" />
-					<sval type="int" val="5" />
+					<sval type="int" val="7" />
 					<sval type="int" val="0" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="131" />
-					<sval type="int" val="4" />
-					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610604023" />
+					<sval type="int" val="-1610602743" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
+					<sval type="int" val="5" />
 					<sval type="int" val="1" />
 					<sval type="int" val="-1" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="143" />
-					<sval type="int" val="4" />
+					<sval type="int" val="5" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="129" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
+					<sval type="int" val="131074" />
+					<sval type="int" val="7" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="6">
 					<sval type="int" val="102" />
 					<sval type="string" val="tv.task.tradeembargo" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
+					<sval type="int" val="8" />
 					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
 					<sval type="int" val="-2147483647" />
 					<sval type="int" val="131074" />
-					<sval type="int" val="1" />
+					<sval type="int" val="0" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="28" />
+					<sval type="int" val="33" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
 				</sval>
 			</sval>
-			<sval type="array" size="1">
+			<sval type="int" val="0" />
+			<sval type="array" size="20">
 				<sval type="array" size="2">
-					<sval type="int" val="14" />
-					<sval type="string" val="The sector to monitor" />
-				</sval>
-			</sval>
-			<sval type="array" size="17">
-				<sval type="array" size="2">
-					<sval type="int" val="1" />
+					<sval type="int" val="2" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -602,15 +693,11 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="5" />
-					<sval type="int" val="2" />
+					<sval type="int" val="7" />
+					<sval type="int" val="7" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="8" />
-					<sval type="int" val="4" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="8" />
+					<sval type="int" val="7" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -618,7 +705,23 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="15" />
+					<sval type="int" val="11" />
+					<sval type="int" val="4" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="11" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="12" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="13" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="16" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
@@ -626,39 +729,39 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
+					<sval type="int" val="19" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
 					<sval type="int" val="20" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="21" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
 					<sval type="int" val="22" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="24" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="25" />
+					<sval type="int" val="23" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="31" />
+					<sval type="int" val="30" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="32" />
+					<sval type="int" val="36" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="34" />
+					<sval type="int" val="37" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="39" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="35" />
+					<sval type="int" val="40" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
