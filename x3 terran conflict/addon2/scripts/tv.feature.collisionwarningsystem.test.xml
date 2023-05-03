@@ -60,7 +60,7 @@
 			<text> </text>
 			<text>EquipEnemyWithWeapons</text>
 			<text>=</text>
-			<var>[TRUE]</var>
+			<var>[FALSE]</var>
 			<text> </text>
 			<text>PlayerShipType</text>
 			<text>=</text>
@@ -134,7 +134,7 @@
 					<sval type="int" val="4" />
 					<sval type="int" val="60" />
 					<sval type="int" val="131075" />
-					<sval type="int" val="10" />
+					<sval type="int" val="9" />
 					<sval type="int" val="9" />
 					<sval type="int" val="458819" />
 					<sval type="int" val="4" />
