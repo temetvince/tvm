@@ -38,6 +38,10 @@
 * Reshade preset
     * temetvince.ini
 
+### Translations
+* German - Provided by olsch
+* Russian - Provided by Fallout (EG)
+
 ### Special Thanks
 * To Litcube for his amazing Bounce scripts and for making Litcube's Universe, which has sucked many hours of my life away
 * To Joubarbe for making the Mayhem mods, whose code I studied to learn how to mod x3
