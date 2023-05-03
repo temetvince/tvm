@@ -40,7 +40,7 @@
 
 ### Translations
 * German - Provided by olsch
-* Russian - Provided by Fallout (EG)
+* Russian - Provided by alexalsp
 
 ### Special Thanks
 * To Litcube for his amazing Bounce scripts and for making Litcube's Universe, which has sucked many hours of my life away
