@@ -15,10 +15,6 @@
 ### Features
 * TVM Control Center
     * A new hotkey for turning features of the mod on or off
-* Collision Warning System
-    * Severely reduced collisions during battles (Litcube's Bounce)
-* Asteroid Radar
-    * Reduced collisions with asteroids
 * Improved Piloting
     * Ships rotate themselves so they are "upright" when flying around
 * Overachiever

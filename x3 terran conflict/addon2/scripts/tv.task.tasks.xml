@@ -277,43 +277,15 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="040" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.collisionwarningsystem</call>
-			<text> </text>
-			<text>:</text>
-		</line>
-		<line linenr="041" indent="&#160;" interruptable="@">
-			<text>=</text>
-			<text> </text>
-			<var>$ship</var>
-			<text>-&gt;</text>
-			<text> </text>
-			<text>call</text>
-			<text> </text>
-			<text>script</text>
-			<text> </text>
-			<call>tv.task.asteroidradar</call>
-			<text> </text>
-			<text>:</text>
-		</line>
-		<line linenr="042" indent="">
+		<line linenr="040" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="043" indent="" />
-		<line linenr="044" indent="">
+		<line linenr="041" indent="" />
+		<line linenr="042" indent="">
 			<var>StartTasksOnStations</var>
 			<text>:</text>
 		</line>
-		<line linenr="045" indent="&#160;">
+		<line linenr="043" indent="&#160;">
 			<var>$stations</var>
 			<text> </text>
 			<text>=</text>
@@ -337,7 +309,7 @@
 			<text>=</text>
 			<var>null</var>
 		</line>
-		<line linenr="046" indent="&#160;">
+		<line linenr="044" indent="&#160;">
 			<var>$index</var>
 			<text> </text>
 			<text>=</text>
@@ -350,17 +322,17 @@
 			<text> </text>
 			<var>$stations</var>
 		</line>
-		<line linenr="047" indent="&#160;">
+		<line linenr="045" indent="&#160;">
 			<text>while</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="048" indent="&#160;&#160;">
+		<line linenr="046" indent="&#160;&#160;">
 			<text>dec</text>
 			<text> </text>
 			<var>$index</var>
 		</line>
-		<line linenr="049" indent="&#160;&#160;">
+		<line linenr="047" indent="&#160;&#160;">
 			<var>$station</var>
 			<text> </text>
 			<text>=</text>
@@ -379,8 +351,8 @@
 			<var>$index</var>
 			<text>)</text>
 		</line>
-		<line linenr="050" indent="&#160;&#160;" />
-		<line linenr="051" indent="&#160;&#160;" interruptable="@">
+		<line linenr="048" indent="&#160;&#160;" />
+		<line linenr="049" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<var>$station</var>
@@ -394,8 +366,8 @@
 			<text> </text>
 			<text>:</text>
 		</line>
-		<line linenr="052" indent="&#160;&#160;" />
-		<line linenr="053" indent="&#160;&#160;" interruptable="@">
+		<line linenr="050" indent="&#160;&#160;" />
+		<line linenr="051" indent="&#160;&#160;" interruptable="@">
 			<text>=</text>
 			<text> </text>
 			<text>wait</text>
@@ -404,13 +376,13 @@
 			<text> </text>
 			<text>ms</text>
 		</line>
-		<line linenr="054" indent="&#160;">
+		<line linenr="052" indent="&#160;">
 			<text>end</text>
 		</line>
-		<line linenr="055" indent="">
+		<line linenr="053" indent="">
 			<text>endsub</text>
 		</line>
-		<line linenr="056" indent="" />
+		<line linenr="054" indent="" />
 	</sourcetext>
 	<codearray>
 		<sval type="array" size="10">
@@ -430,7 +402,7 @@
 				<sval type="string" val="stations" />
 				<sval type="string" val="station" />
 			</sval>
-			<sval type="array" size="40">
+			<sval type="array" size="38">
 				<sval type="array" size="4">
 					<sval type="int" val="158" />
 					<sval type="int" val="5" />
@@ -495,7 +467,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="1167" />
-					<sval type="int" val="30" />
+					<sval type="int" val="28" />
 				</sval>
 				<sval type="array" size="4">
 					<sval type="int" val="105" />
@@ -602,22 +574,6 @@
 					<sval type="int" val="6" />
 					<sval type="int" val="0" />
 				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="102" />
-					<sval type="string" val="tv.task.collisionwarningsystem" />
-					<sval type="int" val="-2147483647" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="0" />
-				</sval>
-				<sval type="array" size="6">
-					<sval type="int" val="102" />
-					<sval type="string" val="tv.task.asteroidradar" />
-					<sval type="int" val="-2147483647" />
-					<sval type="int" val="131074" />
-					<sval type="int" val="6" />
-					<sval type="int" val="0" />
-				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
 				</sval>
@@ -641,7 +597,7 @@
 				</sval>
 				<sval type="array" size="7">
 					<sval type="int" val="104" />
-					<sval type="int" val="-1610602743" />
+					<sval type="int" val="-1610603255" />
 					<sval type="int" val="1" />
 					<sval type="int" val="131074" />
 					<sval type="int" val="5" />
@@ -676,7 +632,7 @@
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="112" />
-					<sval type="int" val="33" />
+					<sval type="int" val="31" />
 				</sval>
 				<sval type="array" size="1">
 					<sval type="int" val="1168" />
@@ -745,23 +701,23 @@
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="30" />
+					<sval type="int" val="28" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="36" />
+					<sval type="int" val="34" />
+					<sval type="int" val="2" />
+				</sval>
+				<sval type="array" size="2">
+					<sval type="int" val="35" />
 					<sval type="int" val="2" />
 				</sval>
 				<sval type="array" size="2">
 					<sval type="int" val="37" />
-					<sval type="int" val="2" />
-				</sval>
-				<sval type="array" size="2">
-					<sval type="int" val="39" />
 					<sval type="int" val="4" />
 				</sval>
 				<sval type="array" size="2">
-					<sval type="int" val="40" />
+					<sval type="int" val="38" />
 					<sval type="int" val="2" />
 				</sval>
 			</sval>
