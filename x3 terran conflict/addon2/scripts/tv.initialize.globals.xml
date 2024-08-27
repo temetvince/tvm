@@ -124,7 +124,7 @@
 			<text> </text>
 			<text>value</text>
 			<text>=</text>
-			<var>0</var>
+			<var>1</var>
 		</line>
 		<line linenr="015" indent="&#160;" interruptable="@">
 			<text>=</text>
@@ -1517,7 +1517,7 @@
 					<sval type="int" val="5" />
 					<sval type="string" val="tv.feature.standardizedfleetoperations" />
 					<sval type="int" val="4" />
-					<sval type="int" val="0" />
+					<sval type="int" val="1" />
 				</sval>
 				<sval type="array" size="10">
 					<sval type="int" val="102" />
